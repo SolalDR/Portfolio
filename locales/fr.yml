@@ -1,0 +1,30 @@
+fr: 
+  
+  home:
+    title: Solal Dussout-Revel
+    subtitle: Développeur Web
+    meta_title: Solal Dussout-Revel | Développeur Web
+    meta_description: Je suis un jeune développeur de talent
+  
+  works:
+    menu_title: Mes <strong>travaux</strong>
+    title: Mes <strong>travaux</strong>
+  
+  contact:
+    menu_title: <strong>Contactez</strong> moi
+    title: <strong>Contactez</strong> moi
+
+  about:
+    menu_title: <strong>A Propos</strong>
+    title: <strong>A Propos</strong>
+
+  skills:
+    menu_title: Mes <strong>compétences</strong>
+    title: Mes <strong>compétences</strong>
+
+  actions: 
+    send: Envoyer
+    back: Retour
+
+  infos: 
+    copyright: © Copyright Solal Dussout-Revel - 2018

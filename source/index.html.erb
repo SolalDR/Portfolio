@@ -1,0 +1,32 @@
+---
+title: Solal Dussout-Revel | Developpeur Web
+---
+
+
+<div class="home">
+	<div class="menu">
+		
+		
+		<div class="bg-light-a menu__item menu__item--top-left">
+			<%= link_to t(:menu_title, scope: [:skills]), "/skills.html" %>
+		</div>
+		
+		<div class="bg-light-a menu__item menu__item--top-right">
+			<%= link_to t(:menu_title, scope: [:about]), "/about.html" %>
+		</div>
+		
+		<div class="bg-light-a menu__item menu__item--bottom-right">
+			<%= link_to t(:menu_title, scope: [:works]), "/works.html" %>
+		</div>
+		
+	
+		<div class="bg-light-a menu__item menu__item--bottom-left">
+			<%= link_to t(:menu_title, scope: [:contact]), "/contact.html" %>
+		</div>
+		
+	</div>
+	<div class="home__container bg-light-a">
+		<h1 class="home__title"><%= t(:title, scope: [:home]) %></h1>
+		<h2 class="home__subtitle"><%= t(:subtitle, scope: [:home]) %></h2>
+	</div>
+</div>
