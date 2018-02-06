@@ -9,14 +9,12 @@
   "author": "SolalDR",
   "license": "ISC",
   "devDependencies": {
-    "asap-js": "^0.2.0",
+    "asap-js": "^0.4.0",
     "babel": "^6.23.0",
     "babel-loader": "^7.1.2",
     "babel-preset-es2015": "^6.24.1",
     "babel-preset-stage-0": "^6.24.1",
     "gl-matrix": "latest",
-    "pixi-custom": "latest",
-    "pixi.js": "4.0.3",
     "regl": "latest",
     "webpack": "^3.10.0"
   }
