@@ -33,22 +33,16 @@ module.exports = {
         }
       },
       {
-      test: /\.(jpe?g|png|gif|svg)$/i,
+        test: /\.(jpe?g|png|gif|svg)$/i,
         use: [
           'url-loader?limit=10000',
           'img-loader'
         ]
+      },
+      {
+        test:[/\.vert$/,/\.frag$/],
+        loader: 'webpack-glsl-loader'
       }
-      // {
-      //   test: /\.(png|jpg|gif)$/,
-      //   use: [
-      //     {
-      //       loader: 'file-loader',
-      //       options: {}  
-      //     }
-      //   ]
-      // }
-      // ...
     ]
   }
 };

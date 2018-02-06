@@ -19,6 +19,7 @@
     "img-loader": "^2.0.1",
     "regl": "latest",
     "webpack": "^3.10.0",
-    "url-loader": "latest"
+    "url-loader": "latest",
+    "webpack-glsl-loader": "^1.0.1"
   }
 }
