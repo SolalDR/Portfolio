@@ -7,6 +7,9 @@ import Asap from "asap-js";
 
 window.addEventListener("load", function(){
 	var bg = new Background();
-	Asap.start();
+	Asap.start({
+		targetSelector: "#body",
+		sourceSelector: "#body"
+	});
 })
 

@@ -31,7 +31,23 @@ module.exports = {
         query: {
           presets: ['es2015', 'stage-0']
         }
+      },
+      {
+      test: /\.(jpe?g|png|gif|svg)$/i,
+        use: [
+          'url-loader?limit=10000',
+          'img-loader'
+        ]
       }
+      // {
+      //   test: /\.(png|jpg|gif)$/,
+      //   use: [
+      //     {
+      //       loader: 'file-loader',
+      //       options: {}  
+      //     }
+      //   ]
+      // }
       // ...
     ]
   }

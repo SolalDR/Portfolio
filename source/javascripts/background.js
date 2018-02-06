@@ -5,6 +5,7 @@ import Object2D from "./object2D";
 window.requestAnimationFrame = window.requestAnimationFrame || window.mozRequestAnimationFrame || window.webkitRequestAnimationFrame || window.msRequestAnimationFrame;
 
 import * as REGL from "regl"
+import Cursor from "./background/Cursor.js"
 
 const LIGHT_MODE = false; 
 
@@ -15,15 +16,11 @@ class Background {
 		this.canvas = document.querySelector("#bg-canvas");
 		this.canvas.width = window.innerWidth;
 		this.canvas.height = window.innerHeight;
-		// this.mouseCoord = [-1000, -1000];
 
-		this.cursor = document.getElementById("cursor");
-		// this.cursor = {
-		// 	el: document.getElementById("cursor"),
-		// 	position: [window.innerWidth/2, window.innerHeight/2]
-		// }
+		this.ratio = this.canvas.width/this.canvas.height;
+		this.cursor = new Cursor();
+
 		this.scrollPercent = 0;
-		this.cursorPosition = [window.innerWidth/2, window.innerHeight/2]; 
 		var canvas = this.canvas;
 		// Initialize the GL context
 		
@@ -36,11 +33,24 @@ class Background {
 		  pixelRatio: window.innerHeight/window.innerHeight
 		});
 
-		this.cursorPosition = { x: 0, y: 0 }
-		this.cursorExpectedPosition = { x: 0, y: 0 }
+		this.wave = { coords: [this.cursor.position.x, this.cursor.position.y], radius: 0, speed: 20, strength: 0, needsUpdate: false, start: 0 };
 
-		this.cursorPositionScaled = [0, 0]
-		this.wave = { coords: [this.cursorPosition.x, this.cursorPosition.y], radius: 0, speed: 20, strength: 0, needsUpdate: false, start: 0 };
+
+		var canvas = document.createElement("canvas")
+		canvas.width = window.innerWidth;
+		canvas.height = window.innerHeight;
+		var ctx = canvas.getContext('2d')
+		ctx.fillStyle = "white";
+		ctx.fillRect(0, 0, canvas.width, canvas.height)
+	    ctx.fillStyle = "black";
+	    ctx.beginPath();
+	    ctx.moveTo(100, 50);
+	    ctx.lineTo(350, 250);
+	    ctx.lineTo(350, 50);
+	    ctx.fill();
+		this.imageTexture = this.regl.texture(canvas)
+
+		document.body.appendChild(canvas);
 
 		this.updateDrawCommand(0);
 		this.regl.frame(this.render.bind(this));
@@ -59,8 +69,8 @@ class Background {
 
 		this.points = [];
 		
-		var wParticule = 1.5/window.innerWidth*2
-		var hParticule = 1.5/window.innerHeight*2
+		var wParticule = 1/window.innerWidth*2
+		var hParticule = 1/window.innerHeight*2
 		var geometry =  new Polygon(3, wParticule, hParticule).points;
 		
 		var offsetX = 1 - (nW - 1) * config.bg.precision/calcW
@@ -118,8 +128,24 @@ class Background {
 		this.compute();
 		this.drawTriangle = this.regl({
 			frag: `
+				precision mediump float;
+
+				varying vec2 uv;
+				uniform sampler2D texture;
+				// uniform vec2 boundaries;
+
 				void main() {
-					gl_FragColor = vec4(0.5, 0.5, 0.5, 1);
+					vec2 trueUV = vec2(0.);
+					
+					trueUV.x = (uv.x + 1.) / 2.;
+					trueUV.y =  (uv.y + 1.) / 2. * -1. + .5;
+
+					vec4 textureLocal = texture2D(texture, trueUV);
+					if(textureLocal.xy == vec2(0., 0.)) {
+						gl_FragColor = vec4(1.0, 0., 0., 1);
+					} else {
+						gl_FragColor = vec4(0.5, 0.5, 0.5, 1);
+					}
 				}`,
 
 			vert: `
@@ -128,6 +154,8 @@ class Background {
 				uniform vec2 waveCoords;
 				uniform float waveRadius;
 				uniform float waveStrength;
+	
+				uniform float ratio;
 	
 				uniform vec2 scroll; 
 				uniform vec2 offset;
@@ -138,16 +166,28 @@ class Background {
 				attribute vec2 localPosition;
 				attribute vec2 sPosition;
 				
+				varying vec2 uv;
+
 				void main() {
-					
+						
 					vec2 newPosition = position + offset;
 
 					newPosition.y = mod(position.y + scroll.y, 2.) - 1.;
+					newPosition.x = mod(position.x + scroll.x, 2.) - 1.;
 
+					uv = position;
 
 					float intensityMouse = 1. - min(1., distance(mouse, newPosition)/0.2);
-					float intensityWave = waveStrength * 2. * (1. - min(1., abs(distance(waveCoords, newPosition) - waveRadius) / 0.3)) ;
 					
+					float distanceX = abs(distance(waveCoords, newPosition) - waveRadius);
+					float distanceY = abs(distance(waveCoords, newPosition) - waveRadius*ratio);
+
+					vec2 intensityWave = vec2(
+						waveStrength * 2. * (1. - min(1., distanceX / 0.3)),
+						waveStrength * 2. * (1. - min(1., distanceY / 0.3))
+					);
+					
+
 					newPosition += localPosition * (1. + intensityMouse*1.5 + intensityWave);
 					newPosition += localPosition;
 
@@ -163,12 +203,15 @@ class Background {
 
 		  uniforms: {
 		  	time: () => { return this.time },
-		  	mouse: () => { return this.cursorPositionScaled },
+		  	mouse: () => { return this.cursor.scaledPosition },
 		  	waveCoords: () => { return this.wave.coords },
 		  	waveRadius: () => { return this.wave.radius },
 		  	waveStrength: () => { return this.wave.strength },
-		  	scroll: () => { return [0, this.scrollPercent] },
-		  	offset: () => { return [this.meshInfo.offsetX, this.meshInfo.offsetY] }
+		  	scroll: () => { return [this.scrollPercent-= 0.01, this.scrollPercent] },
+		  	ratio: () => { return this.ratio },
+		  	offset: () => { return [this.meshInfo.offsetX, this.meshInfo.offsetY] },
+		  	texture: () => { return this.imageTexture},
+		  	boundaries: () => { return [window.innerWidth, window.innerHeight] } ,
 		  },
 
 		  count: this.meshInfo.position.length
@@ -189,13 +232,7 @@ class Background {
 	}
 
 	onMouseMove(e) {
-		// this.mouseCoord[0] = e.clientX;
-		// this.mouseCoord[1] = window.innerHeight - e.clientY;
-
-		this.cursorExpectedPosition = {
-			x: e.clientX,
-			y: e.clientY
-		}
+		this.cursor.move({ x: e.clientX, y: e.clientY });
 
 		this.updateUntil(1500);
 	}
@@ -210,10 +247,10 @@ class Background {
 	runWave(current){
 		if( current - this.wave.start > 700 ) {
 			this.wave = {
-				coords: this.toShaderScale({ x: this.cursorPosition.x,  y: window.innerHeight - this.cursorPosition.y }),
+				coords: this.toShaderScale({ x: this.cursor.position.x,  y: window.innerHeight - this.cursor.position.y }),
 				radius: 0,
-				speed: 0.05,
-				strength: 1,
+				speed: 0.04,
+				strength: 3,
 				needsUpdate: true,
 				start: current
 			};
@@ -240,17 +277,7 @@ class Background {
 			this.wave.radius += this.wave.speed;
 			this.wave.strength = Math.max(0, this.wave.strength-0.04);
 
-			this.cursorPosition = {
-				x: this.cursorPosition.x  + (this.cursorExpectedPosition.x - this.cursorPosition.x) * 0.1,
-				y: this.cursorPosition.y  + (this.cursorExpectedPosition.y - this.cursorPosition.y) * 0.1
-			}
-
-			this.cursorPositionScaled = this.toShaderScale({
-				x: this.cursorPosition.x,
-				y: window.innerHeight - this.cursorPosition.y
-			});
-
-			this.cursor.style = `transform: translate3d(${this.cursorPosition.x - 10}px, ${this.cursorPosition.y - 10}px, 0) scale(1)`
+			this.cursor.update();
 		} 
 	}
 
@@ -259,6 +286,7 @@ class Background {
 		window.addEventListener("resize", () => {
 			this.canvas.width = window.innerWidth;
 			this.canvas.height = window.innerHeight;
+			this.ratio = this.canvas.width/this.canvas.height;
 			this.updateDrawCommand()		
 		} );
 		window.addEventListener("mousemove", this.onMouseMove.bind(this));
