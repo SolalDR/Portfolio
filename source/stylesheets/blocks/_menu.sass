@@ -1,6 +1,6 @@
 $marge: 30px
 $marge-side: 50px
-$bar-w: 80px
+$bar-w: 200px
 $bar-marge: 20px
 
 .menu
@@ -11,6 +11,14 @@ $bar-marge: 20px
 		transform-origin: 0px
 		text-transform: uppercase
 		font-size: 20px
+		transition: .5s ease-in-out
+		opacity: 1
+
+		transform: translate3d(0, 0, 0)
+		&--hide
+			opacity: 0
+
+
 
 		a 
 			text-decoration: none
@@ -27,27 +35,41 @@ $bar-marge: 20px
 			bottom: 7px
 
 		strong
-			font-weight: bold
-
+			font-weight: bold			
+	
 		&--top-left
 			top: $marge
 			left: $marge + $marge-side
+			&.menu__item--hide
+				// left: -100%
+				transform: translate3d(-100%, 0, 0)
 
 		&--top-right
 			top: $marge + $marge-side
 			left: calc(100% - #{$marge})
 			transform: rotate(90deg) translateY(50%)
+			&.menu__item--hide
+				// top: -100%
+				transform: rotate(90deg) translate3d(-100%, 50%, 0)
 
 		&--bottom-left
 			bottom: $marge + $marge-side
 			left: $marge 
 			transform: rotate(-90deg) translateY(50%)
+			&.menu__item--hide
+				// bottom: -100%
+				transform: rotate(-90deg) translate3d(-100%, 50%, 0)
 
 		&--bottom-right
 			bottom: $marge
 			right: $marge + $marge-side
 			text-align: right
+
 			&::after 
 				width: 80px
 				right: -90px
 				left: auto
+
+			&.menu__item--hide
+				// right: -100%
+				transform: translate3d(100%, 0, 0)

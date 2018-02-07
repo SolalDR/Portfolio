@@ -1,0 +1,40 @@
+
+.animate
+	transform: translate3d(0, 0, 0) rotate3d(0, 0, 0)
+	opacity: 1
+	transition: 1s
+
+	&--fade
+		opacity: 0
+
+		&-left
+			transform: translateX(-100vw)
+			opacity: 0
+			@for $i from 1 through 4
+				&-#{$i}
+					transform: translateX(#{$i * -20px})
+					opacity: 0
+
+		&-top
+			transform: translateY(-100vh)
+			opacity: 0
+			@for $i from 1 through 4
+				&-#{$i}
+					transform: translateY(#{$i * -20px})
+					opacity: 0
+
+		&-right
+			transform: translateX(100vw)
+			opacity: 0
+			@for $i from 1 through 4
+				&-#{$i}
+					transform: translateX(#{$i * 20px})
+					opacity: 0
+
+		&-bottom
+			transform: translateY(100vh)
+			opacity: 0
+			@for $i from 1 through 4
+				&-#{$i}
+					transform: translateY(#{$i * 20px})
+					opacity: 0

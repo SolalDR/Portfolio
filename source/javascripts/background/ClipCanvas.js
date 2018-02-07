@@ -15,7 +15,7 @@ class ClipCanvas {
 	    ctx.fill();
 		this.texture = regl.texture(canvas)
 
-		document.body.appendChild(canvas);
+		// document.body.appendChild(canvas);
 	}
 }
 

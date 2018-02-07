@@ -6,10 +6,12 @@ title: About - Solal Dussout-Revel
 
 	<div class="menu">
 		
-		<div class="bg-light-a menu__item menu__item--top-left">
+		<div class="bg-light-a menu__item menu__item--top-left  menu__item--hide">
 			<%= t(:menu_title, scope: [:about]) %>
 		</div>
 
 	</div>
+	
+	<%= link_to "return", "/" ,class: "hide-link hide-link--bottom", :data => { :animate => "fade-bottom" } %>
 
 </div>
