@@ -6,7 +6,7 @@ uniform sampler2D texture;
 void main() {
 	vec2 trueUV = vec2(0.);
 	
-	trueUV.x = (uv.x + 1.) / 2.;
+	trueUV.x = (uv.x + 1.) / 2. - 0.5;
 	trueUV.y =  (uv.y + 1.) / 2. * -1. + .5;
 
 	vec4 textureLocal = texture2D(texture, trueUV);
