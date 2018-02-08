@@ -158,6 +158,8 @@ class Background {
 	render(){
 		if( this.needUpdate && this.drawTriangle ){
 			this.time += 0.05;
+
+			this.clipCanvas.render();
 			this.drawTriangle();
 
 			this.wave.update();
