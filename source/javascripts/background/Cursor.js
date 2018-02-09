@@ -1,6 +1,11 @@
 
 class Cursor {
+
 	constructor() {
+		this.config = {
+			speed: 0.2
+		}
+
 		this.el = document.getElementById("cursor");
 		this.position =  { x: 0, y: 0 }; 
 		this.targetPosition = { x: 0, y: 0 };
@@ -9,8 +14,8 @@ class Cursor {
 
 	update(){
 		this.position = {
-			x: this.position.x  + (this.targetPosition.x - this.position.x) * 0.1,
-			y: this.position.y  + (this.targetPosition.y - this.position.y) * 0.1
+			x: this.position.x  + (this.targetPosition.x - this.position.x) * this.config.speed,
+			y: this.position.y  + (this.targetPosition.y - this.position.y) * this.config.speed
 		}
 
 		this.scaledPosition = [
@@ -24,6 +29,7 @@ class Cursor {
 	move(coords){
 		this.targetPosition = coords;
 	}
+	
 }
 
 

@@ -1,7 +1,5 @@
 body
-	font-family: "Gravity"
 	font-weight: light
-	// cursor: none
 
 #bg
 	position: fixed
@@ -17,7 +15,7 @@ body
 	width: 30px
 	height: 30px
 	border-radius: 100%
-	border: 2px solid black
+	border: 2px solid $color-nd
 	transform: translate3d(0, 0, 0)
 
 	&.clicked
@@ -32,6 +30,16 @@ body
 	left: 0
 	height: 100vh
 	width: 100vw
+
+.center
+	&-y
+		display: flex
+		flex-direction: column
+		justify-content: center
+	&-x 
+		margin: auto
+		text-align: center
+
 
 =keyframes($name)
 	@-webkit-keyframes #{$name}

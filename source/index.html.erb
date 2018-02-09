@@ -7,19 +7,19 @@ title: Solal Dussout-Revel | Developpeur Web
 	<div class="menu">
 		
 		<div class="bg-light-a menu__item menu__item--top-left menu__item--hide">
-			<%= link_to t(:menu_title, scope: [:skills]), "/skills.html", :data => { :animate => "fade-right" } %>
+			<%= link_to t(:menu_title, scope: [:skills]), "/skills.html", :data => { :animate => "right" } %>
 		</div>
 		
 		<div class="bg-light-a menu__item menu__item--top-right menu__item--hide">
-			<%= link_to t(:menu_title, scope: [:about]), "/about.html", :data => { :animate => "fade-bottom" } %>
+			<%= link_to t(:menu_title, scope: [:about]), "/about.html", :data => { :animate => "bottom" } %>
 		</div>
 		
 		<div class="bg-light-a menu__item menu__item--bottom-right menu__item--hide">
-			<%= link_to t(:menu_title, scope: [:works]), "/works.html", :data => { :animate => "fade-left" } %>
+			<%= link_to t(:menu_title, scope: [:works]), "/works.html", :data => { :animate => "left" } %>
 		</div>
 		
 		<div class="bg-light-a menu__item menu__item--bottom-left menu__item--hide">
-			<%= link_to t(:menu_title, scope: [:contact]), "/contact.html", :data => { :animate => "fade-top" } %>
+			<%= link_to t(:menu_title, scope: [:contact]), "/contact.html", :data => { :animate => "top" } %>
 		</div>
 		
 	</div>
@@ -31,3 +31,10 @@ title: Solal Dussout-Revel | Developpeur Web
 
 	
 </div>
+
+<script>
+	bg.clipCanvas.hideArrow();
+	bg.clipCanvas.draw();
+	bg.updateUntil(50);
+
+</script>

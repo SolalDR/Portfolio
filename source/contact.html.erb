@@ -2,15 +2,30 @@
 title: Contact - Solal Dussout-Revel
 ---
 
-<div class="project">
+<div class="contact center-y">
 
 	<div class="menu">
 		<div class="bg-light-a menu__item menu__item--top-left menu__item--hide">
 			<%= t(:menu_title, scope: [:contact]) %>
 		</div>
-		
 	</div>
 
-	<%= link_to "return", "/" ,class: "hide-link hide-link--top", :data => { :animate => "fade-top" } %>
+	<div class="center-x">
+		<div class="form__container">
+			<form class="form" action="/postmail.php">
+				<input class="form__input animate" type="text" name="name" placeholder="Nom">
+				<input class="form__input animate" type="text" name="email" placeholder="E-mail">
+				<input class="form__input animate" type="text" name="subject" placeholder="Sujet">
+				<textarea class="form__text animate" name="content" id="" cols="30" rows="10" placeholder="Message"></textarea>
+			</form>
+		</div>
+	</div>
+
+
+	<%= link_to "return", "/" ,class: "hide-link hide-link--top", :data => { :animate => "bottom" } %>
 
 </div>
+
+<script>
+	bg.clipCanvas.displayArrow("top");
+</script>

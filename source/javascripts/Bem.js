@@ -91,11 +91,9 @@ class BemElement {
 	}
 
 	removeAllMod(){
-		console.log(this.modifier);
 		while(this.modifier.length > 0) {
 			this.removeMod(this.modifier[0]);
 		}
-		console.log(this.modifier);
 	}
 
 	removeMod(mod){

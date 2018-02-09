@@ -9,6 +9,13 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
   border: 0;
   font-size: 100%;
   font: inherit;
+  font-weight: $weight; 
+  @if($cursor == false) {
+    cursor: none !important; 
+  }
+  font-family: $family-st; 
+  color: $color-nd; 
+  
   vertical-align: baseline; }
 
 /* HTML5 display-role reset for older browsers */

@@ -1,23 +1,35 @@
 
 class Wave {
 
+
+
 	constructor(cursor){
+		this.config = {
+			speed: 15,
+			strength: 3,
+			strengthStep: 0.15,
+			weight: 100
+		}
+
 		this.coords = [0, 0]
+		this.scaledCoords = [0, 0];
 		this.radius = 0;
-		this.speed = 0.04;
 		this.strength = 0; 
-		this.needsUpdate = false;
 		this.start = 0;
 		this.cursor = cursor;
+	}
+
+	manageCoords(){
+		this.coords = [this.cursor.position.x, this.cursor.position.y - window.innerHeight];
+		this.scaledCoords = this.cursor.scaledPosition;
 	}
 
 
 	run(current){
 		if( current - this.start > 700 ) {
-			this.coords = this.cursor.scaledPosition;
+			this.manageCoords();
 			this.radius = 0;
-			this.strength = 3;
-			this.needsUpdate = true;
+			this.strength = this.config.strength;
 			this.start = current;
 			return true;
 		} 
@@ -25,8 +37,8 @@ class Wave {
 	}
 
 	update(){
-		this.strength = Math.max(0, this.strength-0.04); 
-		this.radius += this.speed;
+		this.strength = Math.max(0, this.strength-this.config.strengthStep); 
+		this.radius += this.config.speed;
 	}
 }
 

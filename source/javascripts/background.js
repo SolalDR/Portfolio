@@ -5,6 +5,7 @@ import Object2D from "./object2D";
 import Cursor from "./background/Cursor.js"
 import Wave from "./background/Wave.js"
 import ClipCanvas from "./background/ClipCanvas.js";
+import ScrollController from "./background/ScrollController.js";
 import bgVertex from "./../shaders/background.vert";
 import bgFragment from "./../shaders/background.frag";
 import * as REGL from "regl"
@@ -15,7 +16,7 @@ class Background {
 	constructor() {
 		// Animation datas
 		this.time = 0;
-		this.scrollPercent = 0;
+		this.scrollController = new ScrollController();
 		this.endRaf = Date.now() + 1000;
 		
 		// Some features
@@ -57,17 +58,12 @@ class Background {
 		let calcW = nW * config.bg.precision; 
 		let calcH = nH * config.bg.precision; 
 
-
 		this.points = [];
 			
 		// Compute the scaled size of a particule and create geometry
 		let wParticule = 1/window.innerWidth*2
 		let hParticule = 1/window.innerHeight*2
 		let geometry =  new Polygon(3, wParticule, hParticule).points;
-		
-		// Offset
-		let offsetX = 1 - (nW - 1) * config.bg.precision/calcW
-		let offsetY = 1 - (nH - 1) * config.bg.precision/calcH
 
 		// Loop and compute each point position
 		for(var i=0; i<nW; i++) {
@@ -106,9 +102,7 @@ class Background {
 		// Store mesh info
 		this.meshInfo = {
 			position: bufferPosition,
-			localPosition: bufferLocalPosition,
-			offsetX: offsetX,
-			offsetY: offsetY
+			localPosition: bufferLocalPosition
 		}
 	
 	}
@@ -123,6 +117,14 @@ class Background {
 		if( this.now + duration > this.endRaf ){
 			this.endRaf = this.now + duration; 
 		}
+	}
+
+	smoothScroll(vector){
+		this.scrollController.scroll(vector, {
+			duration: 2000
+		});
+
+		this.updateUntil(2000);
 	}
 
 
@@ -142,10 +144,10 @@ class Background {
 					mouse: () => { return this.cursor.scaledPosition },
 					waveCoords: () => { return this.wave.coords },
 					waveRadius: () => { return this.wave.radius },
+					waveWeight: () => { return this.wave.config.weight },
 					waveStrength: () => { return this.wave.strength },
-					scroll: () => { return [this.scrollPercent, this.scrollPercent] },
+					scroll: () => { return this.scrollController.coords },
 					ratio: () => { return this.ratio },
-					offset: () => { return [this.meshInfo.offsetX, this.meshInfo.offsetY] },
 					texture: () => { return this.clipCanvas.texture},
 					boundaries: () => { return [window.innerWidth, window.innerHeight] } ,
 				},
@@ -156,7 +158,10 @@ class Background {
 
 
 	render(){
+		var now = Date.now();
 		if( this.needUpdate && this.drawTriangle ){
+			this.regl.clear({color: [0.04, 0.04, 0.04, 1.]})
+			// this.regl.clear({color: [1., 1., 1., 1.]})
 			this.time += 0.05;
 
 			this.clipCanvas.render();
@@ -165,6 +170,8 @@ class Background {
 			this.wave.update();
 			this.cursor.update();
 		} 
+
+		this.scrollController.render(now);
 	}
 
 	/************************* INITIALISATION *******************/

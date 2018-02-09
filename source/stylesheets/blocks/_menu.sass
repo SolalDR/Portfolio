@@ -18,18 +18,16 @@ $bar-marge: 20px
 		&--hide
 			opacity: 0
 
-
-
 		a 
 			text-decoration: none
-			color: black
+			color: $color-nd
 
 		&::after
 			content: ""
 			display: block
 			position: absolute
 			height: 4px
-			background-color: black
+			background-color: $color-nd
 			width: $bar-w
 			left: #{-1 * ($bar-w + $bar-marge)}
 			bottom: 7px
