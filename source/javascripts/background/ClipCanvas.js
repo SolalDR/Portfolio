@@ -26,31 +26,35 @@ class ClipCanvas {
 
 	loadResource(){
 		this.arrow = new Object2D({
-			width: 200*1.19,
-			height: 200,
+			width: 140*1.19,
+			height: 140,
 			source: '/images/arrow-left.png',
 			type: "img",
 			name: "arrow"
 		})
 	}
 
-	hideArrow(){
-		this.arrow.scale = 0;
+	cleanCanvas(){
+		this.ressource = [];
+		this.canvas.width = this.canvas.width+1;
 		this.draw();
+		this.canvas.width = this.canvas.width-1;
 	}
 
 	displayArrow(direction){
 
-		this.hideArrow(); 
+		this.cleanCanvas();
 
 		var w = window.innerWidth;
 		var h = window.innerHeight;
 		this.arrow.scale = 1;
+
 		switch(direction) {
-			case "left" : this.arrow.updateMatrix([0, h/2], 	0, 			[0, 0.5]); break;
-			case "top" : this.arrow.updateMatrix([w/2, 0], 		Math.PI/2, 	[0, 0.5]); break;
-			case "bottom" : this.arrow.updateMatrix([w/2, h], 	-Math.PI/2, [0, 0.5]); break;
-			case "right" : this.arrow.updateMatrix([w, h/2], 	Math.PI, 	[0, 0.5]); break;
+			case "left" : this.arrow.updateMatrix([30, h/2], 	0, 			[0, 0.5]); break;
+			case "top" : this.arrow.updateMatrix([w/2, 30], 		Math.PI/2, 	[0, 0.5]); break;
+			case "bottom" : this.arrow.updateMatrix([w/2, h - 30], 	-Math.PI/2, [0, 0.5]); break;
+			case "right" : this.arrow.updateMatrix([w - 30, h/2], 	Math.PI, 	[0, 0.5]); break;
+			case "none" : this.arrow.updateMatrix([w, h], 		Math.PI, 	[1, 0.5]); break;
 		}
 
 		this.ressource.push(this.arrow);

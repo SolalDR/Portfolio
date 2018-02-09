@@ -161,7 +161,6 @@ class Background {
 		var now = Date.now();
 		if( this.needUpdate && this.drawTriangle ){
 			this.regl.clear({color: [0.04, 0.04, 0.04, 1.]})
-			// this.regl.clear({color: [1., 1., 1., 1.]})
 			this.time += 0.05;
 
 			this.clipCanvas.render();

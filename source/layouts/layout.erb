@@ -11,7 +11,7 @@
     <%= stylesheet_link_tag "site" %>
     <%= javascript_include_tag "site" %>
   </head>
-  <body>
+  <body >
   
     <div id="bg">
       <canvas id="bg-canvas"></canvas>
@@ -19,7 +19,7 @@
 
     <div id="cursor"></div>
   
-    <div id="body">
+    <div id="body" data-slug="<%= current_page.data.slug %>">
       <%= yield %>  
     </div>
   </body>
