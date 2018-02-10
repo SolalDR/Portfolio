@@ -1,10 +1,9 @@
 
-import Background from "./background";
-import BemElement from "./Bem.js";
-import Navigation from "./Navigation.js";
+import Background from "./background.js";
+import BemElement from "./helpers/Bem.js";
+import Navigation from "./navigation.js";
 import Asap from "asap-js";
-
-
+import config from "./config.js";
 
 // Premier chargement 
 window.addEventListener("load", function(){
@@ -31,16 +30,10 @@ document.addEventListener("asap:before-load", (e) => {
 
 	setTimeout(function(){
 		e.detail.load();	// Charge la visite
-	}, 1200)
+	}, config.anim.load.before)
 })
-
 
 // Après chaque chargement 
 document.addEventListener("asap:load", (e) => {
 	nav.load();
-})
-
-
-window.addEventListener("scroll", function(e){
-	console.log("Scroll", e);
 })

@@ -3,6 +3,8 @@ import skills from "./single/skills.js"
 import contact from "./single/contact.js"
 import works from "./single/works.js"
 import about from "./single/about.js"
+import config from "./config.js";
+
 
 class Navigation {
 
@@ -23,19 +25,23 @@ class Navigation {
 	set visit(visit){
 		this._visit = visit; 
 		this._visit.direction = this.visit.link.link.getAttribute("data-animate");
-		this.scrollTo(this._visit.direction);
-		this.hideMenu();
-		this.fade(true);
-
 		this.currentPage = this._visit.target.getAttribute("data-slug");
+
+		this.leave();
 	}
 
 	get visit(){
 		return this._visit;
 	}
 
-	get pageLoaded() {
+	leave() {
+		this.scrollTo(this._visit.direction);
+		this.hideMenu();
+		this.fade(true);
 
+		if( this.currentPage == "home" ){
+			this.bg.clipCanvas.displayArrow("none");
+		}
 	}
 
 
@@ -83,20 +89,24 @@ class Navigation {
 
 		this.execute();
 	
-	},1)}
+	},20)}
 
 
 	/*************** CUSTOM ACTION *****************/
 
+	// Execute the personal scripts of each pages
 	execute(){
-		switch( this.currentPage ) {
-			case "home": home.init(this); break;
-			case "project": project.init(this); break;
-			case "skills": skills.init(this); break;
-			case "works": works.init(this); break;
-			case "about": about.init(this); break;
-			case "contact": contact.init(this); break;
-		}
+		setTimeout(()=>{
+			switch( this.currentPage ) {
+				case "home": home.init(this); break;
+				case "project": project.init(this); break;
+				case "skills": skills.init(this); break;
+				case "works": works.init(this); break;
+				case "about": about.init(this); break;
+				case "contact": contact.init(this); break;
+			}
+			this.bg.updateUntil();
+		}, config.anim.load.after)
 	}
 }
 

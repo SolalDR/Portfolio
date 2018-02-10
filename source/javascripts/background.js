@@ -1,7 +1,7 @@
 
 import config from "./config";
-import Polygon from "./polygon";
-import Object2D from "./object2D";
+import Polygon from "./helpers/polygon";
+import Object2D from "./helpers/object2D";
 import Cursor from "./background/Cursor.js"
 import Wave from "./background/Wave.js"
 import ClipCanvas from "./background/ClipCanvas.js";
@@ -66,28 +66,20 @@ class Background {
 		let geometry =  new Polygon(3, wParticule, hParticule).points;
 
 		// Loop and compute each point position
-		for(var i=0; i<nW; i++) {
-			for(var j=0; j<nH; j++) {
-				this.points.push(new Object2D({
-					geometry: geometry,
-					position: { 
-						x: i*config.bg.precision/calcW * 2 - 1, 
-						y: j*config.bg.precision/calcH * 2 - 1
-					},
-					rotation: -Math.PI/2
-				}));
-			}
-		}
+		for(var i=0; i<nW; i++)
+		for(var j=0; j<nH; j++)
+			this.points.push([ 
+				i*config.bg.precision/calcW * 2 - 1, 
+				j*config.bg.precision/calcH * 2 - 1 
+			]);
+
 
 		// The buffers
 		var bufferLocalPosition = [];
 		var bufferPosition = [];
 
 		// Loop in each point and compute buffers
-		var x, y; 
 		for(var i=0; i<this.points.length; i++){
-			x = this.points[i].position.x; y = this.points[i].position.y; 
-			
 			// The position of each vertex in instance geometry
 			bufferLocalPosition.push(
 				[geometry[0].x, geometry[0].y],
@@ -96,7 +88,7 @@ class Background {
 			);
 
 			// The position of instance
-			bufferPosition.push( [x, y], [x, y], [x, y] );
+			bufferPosition.push( this.points[i], this.points[i], this.points[i] );
 		}
 
 		// Store mesh info
@@ -121,10 +113,10 @@ class Background {
 
 	smoothScroll(vector){
 		this.scrollController.scroll(vector, {
-			duration: 2000
+			duration: config.anim.scroll
 		});
 
-		this.updateUntil(2000);
+		this.updateUntil( config.anim.scroll);
 	}
 
 
@@ -141,7 +133,7 @@ class Background {
 								localPosition: this.meshInfo.localPosition },
 				uniforms: {
 					time: () => { return this.time },
-					mouse: () => { return this.cursor.scaledPosition },
+					mouse: () => {  return this.cursor.vertexPosition },
 					waveCoords: () => { return this.wave.coords },
 					waveRadius: () => { return this.wave.radius },
 					waveWeight: () => { return this.wave.config.weight },

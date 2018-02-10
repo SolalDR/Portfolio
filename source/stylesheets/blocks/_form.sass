@@ -8,25 +8,25 @@
 	&__container
 		display: inline-block
 
-	&__input
+	&__input, &__text, &__submit
 		width: 250px
 		padding: 10px
-		border: 0
-		background-color: $color-nd
 		font-size: 14px
 		margin: 10px 0
 		border: 0
-		color: $color-st
 		border-radius: 25px
+	
+	&__input
+		background-color: $color-nd
+		color: $color-st
 
 	&__text
-		width: 250px
-		padding: 10px
-		border: 0
 		background-color: $color-nd
-		font-size: 14px
-		margin: 10px 0
-		border: 0
 		color: $color-st
-		border-radius: 25px
-		font-family: sans-serif
+		font-family: $family-st
+
+	&__submit
+		width: 100px
+		background-color: $color-rd
+		color: white 
+		display: inline-block

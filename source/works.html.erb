@@ -12,6 +12,20 @@ slug: works
 		
 	</div>
 
+	<div class="works__container wrapper">
+		<div class="projects">
+			<% data.projects.projects.each do |project| %>
+
+				<div class="projects__item animate">
+					<div class="projects__item-frame">
+						<p class="projects__item-title"><%= project.name %></p>
+					</div>
+				</div>		
+			<% end %>
+		</div>
+
+	</div>
+
 	<%= link_to "", "/" ,class: "hide-link hide-link--left", :data => { :animate => "right" } %>
 
 </div>

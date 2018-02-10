@@ -72,9 +72,11 @@ void main() {
 
 	color = getColor(newPosition, texture);
 
-	float intensityMouse = 1. - min(1., distance(mouse, newPosition)/0.2);
-	
+
 	vec2 screenPosition = boundariesFormat(newPosition);
+
+	float intensityMouse = (1. - min(1., distance(mouse, screenPosition)/200.)) * 2. ;
+	
 
 
 	float distanceY = abs(distance(waveCoords, screenPosition) - waveRadius);

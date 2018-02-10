@@ -11,17 +11,20 @@ slug: contact
 		</div>
 	</div>
 
-	<div class="center-x">
+	<div class="wrapper center-x">
 		<div class="form__container">
 			<form class="form" action="/postmail.php">
 				<input class="form__input animate" type="text" name="name" placeholder="Nom">
 				<input class="form__input animate" type="text" name="email" placeholder="E-mail">
 				<input class="form__input animate" type="text" name="subject" placeholder="Sujet">
 				<textarea class="form__text animate" name="content" id="" cols="30" rows="10" placeholder="Message"></textarea>
+				<div class="center-x">
+					<input type="submit" class="form__submit animate" value="Envoyer">	
+				</div>
+				
 			</form>
 		</div>
 	</div>
-
 
 	<%= link_to "", "/" ,class: "hide-link hide-link--top", :data => { :animate => "bottom" } %>
 

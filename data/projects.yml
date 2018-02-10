@@ -1,0 +1,111 @@
+projects:  
+  
+  - name: Ono
+    slug: ono
+    description: Ono est une application web développé à l'aide du framework MVC symfony. 
+      Il fût réaliser dans le cadre de mon projet tuteuré de MMI. 
+      Le but était de faire prendre conscience de l'impact de la révolution digital dans le monde entier.
+      A travers d'un système d'articles participatif et d'un système de question réponse poussé. Ono invite des utilisateurs du monde entier à échanger sur des domaines impacté par le numérique. 
+      Article et Réflexion sont lié les unes aux autres à l'aide d'un système de tag intéligent accompagnant le lecteur et l'invitant à passer de notion en notion.
+      Afin de donner une dimension immersive et intéractive à ce projet une expérience intéractive en béta test a également était développer permettant d'écouter des témoignages diverses de personne du monde entier dont le numérique a drastiquement changé la vie. 
+
+    thumbnail: projects/ono.png
+    photos: 
+    url: http://ono-.herokuapp.com/uxinteractive
+    skills: 
+      - Sass
+      - THREE.js
+      - Symfony
+      - AWS
+      - Heroku
+
+  - name: Sock-It
+    slug: sock-it
+    description: Sock-it est un site de e-commerce développer à l'aide du framework MVC Ruby On Rails. 
+      Il a été réalisé dans le cadre d'un cour de gestion de projet dont l'objectif était d'expérimenter la gestion de projet en mode agile. 
+      La finalité de Sock-it n'est donc pas de vendre des chaussettes bien que ce secteur d'activité soit passionant mais bien d'apréhender des questions éssentiel lié au e-commerce.
+      A l'heure actuelle où la gestion d'un site e-commerce est une chose grandement facilité par des outils fortement apprécié comme Prestashop, Magento ou même Woocommerce, 
+      le choix du framework Ruby-On-Rails nous a permis de repenser l'architecture d'un site de vente à zéro pour mieux en comprendre sa pertinence. 
+      Le projet intègre donc un système gestion de catalogue classique permettant un gestion des catégorie, des variations de produits, des promotions, etc...
+      Un tunel de conversion natif a également été développer, couplé à l'intégration du module de paiment Stripe. 
+    thumbnail: projects/sockit.png
+    photos: 
+    url: http://sock--it.herokuapp.com/
+    skills: 
+      - Ruby-On-Rails
+      - Sass
+      - AWS
+      - Heroku
+      - Stripe
+
+  - name: Make ICI
+    slug: sock-it
+    description: Make ICI est un site de e-commerce basé sur Woocommerce. 
+    thumbnail: projects/makeici.png
+    photos: 
+    url: http://makeici.org/
+    skills: 
+
+  - name: Climate Data
+    slug: climate-visualisation
+    description: 
+    thumbnail: projects/climate.png
+    photos: 
+    url: http://climate.solaldussout-revel.com
+    skills: 
+  
+  - name: Pont des Arts
+    slug: pont-des-arts
+    description: 
+    thumbnail: projects/sound-canvas.png
+    photos: 
+    url: https://solaldr.github.io/CanvasExperiment/TrucChelou/
+    skills: 
+
+  - name: 421
+    slug: 421-game
+    description: 
+    thumbnail: projects/421.png
+    photos: 
+    url: http://421.solaldussout-revel.com/
+    skills: 
+
+  - name: God Planetes
+    slug: 3D-expe
+    description: 
+    thumbnail: projects/godplanete.png
+    photos: 
+    url: http://projets.gobelins.fr/bddi/2018/3d-music-xp/project/dussout-revel-solal
+    skills: 
+
+  - name: Canvas Experiences
+    slug: 2D-expe
+    description: 
+    thumbnail: projects/canvas.png
+    photos: 
+    url: https://solaldr.github.io/CanvasExperiment/
+    skills: 
+
+  - name: Texposoù
+    slug: texposou
+    description: 
+    thumbnail: projects/texposou.png
+    photos: 
+    url: https://texposou.fr/
+    skills:
+
+  - name: Pachamama Project
+    slug: texposou
+    description: 
+    thumbnail: projects/texposou.png
+    photos: 
+    url: https://texposou.fr/
+    skills:
+
+  - name: Festival National du Film d'Animation
+    slug: texposou
+    description: 
+    thumbnail: projects/texposou.png
+    photos: 
+    url: https://texposou.fr/
+    skills:
