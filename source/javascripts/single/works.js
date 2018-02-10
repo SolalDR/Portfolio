@@ -57,7 +57,7 @@ export default {
 			} 
 
 
-			elFrame.setAttribute("style", `transform: matrix3d(1,0,0.00, ${x/intensity},0.00,1, 0.00, ${y/intensity},0,0,1,0,0,0,0,1)`) 
+			elFrame.setAttribute("style", `transform: matrix3d(1,0,0.00, ${x/intensity},0.00,1, 0.00, ${y*2/intensity},0,0,1,0,0,0,0,1)`) 
 			raf = requestAnimationFrame(render);
 		}
 		
@@ -69,14 +69,14 @@ export default {
 		})
 
 
-		el.addEventListener("mousemove", function(e) {
-			var w = el.offsetWidth;
-			var h = el.offsetHeight;
+		elFrame.addEventListener("mousemove", function(e) {
+			var w = elFrame.offsetWidth;
+			var h = elFrame.offsetHeight;
 			var center = w / 2;
 			var middle = h / 2;
 			
-		    x = e.clientX - el.offsetLeft; 
-		    y = e.clientY - el.offsetTop;
+		    x = e.layerX - elFrame.offsetLeft; 
+		    y = e.layerY - elFrame.offsetTop;
 
 			var gradientX = 1 - (x / w);
 			var gradientY = 1 - (y / h);
@@ -94,9 +94,8 @@ export default {
 			}else {
 				y = (y - middle)/middle; 
 			}
-
 				
-			elFrame.setAttribute("style", `transform: matrix3d(1,0,0.00, ${x/intensity},0.00,1, 0.00, ${y/intensity},0,0,1,0,0,0,0,1)`) 
+			elFrame.setAttribute("style", `transform: matrix3d(1,0,0.00, calc(${x}/3000),0.00,1, 0.00, calc(${y}/3000),0,0,1,0,0,0,0,1)`) 
 		});
 
 	
