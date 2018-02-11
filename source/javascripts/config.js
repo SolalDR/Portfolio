@@ -9,5 +9,7 @@ export default {
 			after: 600
 		},
 		scroll: 1500
-	}
+	},
+
+	guides: true
 }

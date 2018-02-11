@@ -1,4 +1,5 @@
 $size: 130px
+$size2: 100px
 
 .hide-link
 	
@@ -6,6 +7,11 @@ $size: 130px
 	display: block
 	width: $size
 	height: $size
+	&::after
+		content: ""
+		position: absolute
+		background-color: white
+		transition: .3s
 	
 	&--bottom
 		bottom: 0
@@ -22,3 +28,65 @@ $size: 130px
 	&--top
 		top: 0
 		left: calc(50% - #{$size/2})
+
+
+.guide-link
+	
+	position: absolute
+	display: block
+	width: $size2
+	height: $size2
+
+
+	&::after
+		content: ""
+		position: absolute
+		background-color: white
+		transition: .3s
+		width: 100%
+		height: 1px
+		transform-origin: 0 50%
+		transform: scaleX(1)
+
+	&:hover, &.guide-link--hide
+		&::after
+			transform: scaleX(0)
+	
+
+
+	&--bottom
+		bottom: 0
+		left: calc(50% - #{$size2/2})
+		&::after
+			transform: rotate(-90deg) scaleX(1)
+			left: 50%
+			bottom: 0
+			transform-origin: 0 50%
+
+		&:hover, &.guide-link--hide
+			&::after
+				transform: rotate(-90deg) scaleX(0)
+
+
+	&--left
+		left: 0
+		top: calc(50% - #{$size2/2})
+		&::after
+			top: 50%
+
+	&--right
+		right: 0
+		top: calc(50% - #{$size2/2})
+		&::after
+			top: 50%
+			transform-origin: 100% 50%
+
+	&--top
+		top: 0
+		left: calc(50% - #{$size2/2})
+		&::after
+			transform: rotate(90deg) scaleX(1)
+			left: 50%
+		&:hover, &.guide-link--hide
+			&::after
+				transform: rotate(90deg) scaleX(0)

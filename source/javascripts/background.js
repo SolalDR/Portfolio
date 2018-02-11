@@ -15,7 +15,8 @@ class Background {
 
 	constructor() {
 		// Animation datas
-		this.time = 0;
+		this.elapsedTime = 0;
+		this.now = Date.now();
 		this.scrollController = new ScrollController();
 		this.endRaf = Date.now() + 1000;
 		
@@ -132,7 +133,7 @@ class Background {
 				attributes: { 	position: this.meshInfo.position, 
 								localPosition: this.meshInfo.localPosition },
 				uniforms: {
-					time: () => { return this.time },
+					time: () => { return this.elapsedTime },
 					mouse: () => {  return this.cursor.vertexPosition },
 					waveCoords: () => { return this.wave.coords },
 					waveRadius: () => { return this.wave.radius },
@@ -151,9 +152,10 @@ class Background {
 
 	render(){
 		var now = Date.now();
+		this.elapsedTime += now - this.now;
+		this.now = now;
 		if( this.needUpdate && this.drawTriangle ){
 			this.regl.clear({color: [0.04, 0.04, 0.04, 1.]})
-			this.time += 0.05;
 
 			this.clipCanvas.render();
 			this.drawTriangle();

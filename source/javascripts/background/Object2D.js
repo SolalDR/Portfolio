@@ -3,14 +3,15 @@ class Object2D {
 	constructor(args){
 		this.type = args.type;
 		this.source = args.source;
-		this.width = args.width; 
-		this.height = args.height; 
 		this.name = args.name ? args.name : null;
 		this.scale = args.scale ? args.scale : [1, 1];
 		this.rotation = args.rotation ? args.rotation : 0; 
 		this.origin = args.origin ? args.origin : [0.5, 0.5];
-		this.translate =  args.origin ? args.origin : [0, 0];
+		this.translate =  args.translate ? args.translate : [0, 0];
 
+		this.width = args.width; 
+		this.height = args.height ? args.height : null; 
+		
 		if (this.type == "img") {
 			this.load(this.source);
 		}
@@ -28,18 +29,17 @@ class Object2D {
 		this.source.src = src;
 	}
 
-	animate(args){
-
-	}
-
 	draw(ctx) {
 		ctx.save();
-		 // 
-		  // 
 		ctx.translate(this.translate[0], this.translate[1]);
 		ctx.rotate(this.rotate);
 		ctx.scale(this.scale, this.scale);
-		ctx.drawImage(this.source, - this.width*this.origin[0], - this.height*this.origin[1], this.width, this.height);
+		console.log(`${this.width}px sans-serif`);
+		switch(this.type){
+			case "img": ctx.drawImage(this.source, - this.width*this.origin[0], - this.height*this.origin[1], this.width, this.height); break;
+			case "text": ctx.font = `${this.width}px sans-serif`; ctx.fillText(this.source,  - this.width*this.origin[0], - this.height*this.origin[1]); break;
+		}
+		
 		ctx.restore();
 	}
 }

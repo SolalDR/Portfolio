@@ -23,17 +23,51 @@ class Navigation {
 	/*************** GETTER / SETTERS *****************/
 
 	set visit(visit){
+
+		this.beforeLeave();
+
+		// Update current visit
 		this._visit = visit; 
+
+		// Define the default animation 
 		this._visit.direction = this.visit.link.link.getAttribute("data-animate");
+		
+		// get the current page
 		this.currentPage = this._visit.target.getAttribute("data-slug");
 
 		this.leave();
 	}
 
+	
 	get visit(){
 		return this._visit;
 	}
 
+	// Return the script of the current page 
+	get currentScript(){
+		switch( this.currentPage ) {
+			case "home": return home;
+			case "project": return project;
+			case "skills": return skills;
+			case "works": return works;
+			case "about": return about;
+			case "contact": return contact;
+		}
+	} 
+
+
+
+	/*************** GLOBAL ACTIONS *****************/
+
+	// Before update the new visit 
+	beforeLeave(){
+		// If custom scripts implement a leave function, execute it
+		if( this.currentScript.leave ) {
+			this.currentScript.leave();
+		}
+	}
+
+	// At the end of preparing new visit
 	leave() {
 		this.scrollTo(this._visit.direction);
 		this.hideMenu();
@@ -43,9 +77,6 @@ class Navigation {
 			this.bg.clipCanvas.displayArrow("none");
 		}
 	}
-
-
-	/*************** GLOBAL ACTIONS *****************/
 
 
 	// Affiche le menu an supprimant le modifier hide des items
@@ -97,14 +128,7 @@ class Navigation {
 	// Execute the personal scripts of each pages
 	execute(){
 		setTimeout(()=>{
-			switch( this.currentPage ) {
-				case "home": home.init(this); break;
-				case "project": project.init(this); break;
-				case "skills": skills.init(this); break;
-				case "works": works.init(this); break;
-				case "about": about.init(this); break;
-				case "contact": contact.init(this); break;
-			}
+			this.currentScript.init(this);
 			this.bg.updateUntil();
 		}, config.anim.load.after)
 	}
