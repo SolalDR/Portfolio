@@ -1,0 +1,61 @@
+.project
+	color: black
+	position: relative
+	padding: 30px
+	a, p
+		color: black
+
+	&__close
+		display: inline-block
+		position: absolute
+		top: 15px
+		right: 15px
+		width: 60px
+		height: 60px
+		padding: 15px
+		overflow: hidden
+		box-sizing: border-box
+		.line1
+			stroke: #000
+			stroke-dasharray: 55
+		.line2
+			stroke: #000
+			stroke-dasharray: 55
+		&:hover
+			.line1, .line2
+				stroke-dashoffset: 110
+			.line1
+				transition: 1s ease-in-out
+			.line2
+				transition: 1s ease-in-out .4s
+
+	&__title
+		font-size: 30px
+		letter-spacing: 1px
+		font-weight: bold
+
+	&__content
+		color: black
+		line-height: 25px
+		margin-top: 30px
+
+	&__skills
+		margin-top: 20px
+
+	&__skill
+		display: inline-block
+		padding: 5px 10px
+		border-radius: 25px
+		letter-spacing: 1px
+
+	&__actions
+		margin-top: 30px
+
+	&__action
+		display: inline-block
+		background-color: $color-rd
+		color: white !important
+		text-decoration: none
+		padding: 18px
+		border-radius: 80px
+		margin-right: 10px

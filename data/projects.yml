@@ -1,111 +1,235 @@
+skills:
+  - &php
+    color: "#FF0000"
+    name: SQL
+    ico: null
+  - &sql
+    color: "#000000"
+    name: SQL
+    ico: null
+  - &js
+    color: "#000000"
+    name: Javascript
+    ico: null
+  - &java
+    color: "#000000"
+    name: Java
+    ico: null
+  - &ruby
+    color: "#000000"
+    name: Ruby
+    ico: null
+  - &swift
+    color: "#000000"
+    name: Swift
+    ico: null
+  - &html
+    color: "#000000"
+    name: HTML
+    ico: null
+  - &css
+    color: "#000000"
+    name: CSS
+    ico: null
+  - &sass
+    color: "#000000"
+    name: SASS
+    ico: null
+  - &c
+    color: "#000000"
+    name: C
+    ico: null 
+  - &webgl
+    color: "#000000"
+    name: WebGL
+    ico: null
+  - &kotlin
+    color: "#000000"
+    name: Kotlin
+    ico: null
+  - &git
+    color: "#000000"
+    name: Git
+    ico: null
+  - &symfony
+    color: "#000000"
+    name: Symfony
+    ico: null
+  - &node
+    color: "#000000"
+    name: Node
+    ico: null
+  - &ruby-on-rails
+    color: "#000000"
+    name: Ruby
+    ico: null
+  - &vue
+    color: "#000000"
+    name: VueJS
+    ico: null
+  - &webpack
+    color: "#000000"
+    name: WebPack
+    ico: null
+  - &grunt
+    color: "#000000"
+    name: Grunt
+    ico: null
+  - &android
+    color: "#000000"
+    name: Android
+    ico: null
+  - &presta
+    color: "#000000"
+    name: Prestashop
+    ico: null
+  - &wp
+    color: "#000000"
+    name: Wordpress
+    ico: null
+  - &woo
+    color: "#000000"
+    name: "WooCommerce"
+    ico: null
+  - &es6
+    color: "#000000"
+    name: "ES6"
+    ico: null
+  - &three
+    color: "#000000"
+    name: ThreeJS
+    ico: null
+  - &heroku
+    color: "#000000"
+    name: Heroku
+    ico: null
+  - &google-map
+    color: "#000000"
+    name: "Google Map API"
+  - &open-street-map
+    color: "#000000"
+    name: "Open Street Map"
+  - &sound
+    color: "#000000"
+    name: "HTML5 Sound-API"
+  - &aws
+    color: "#000000"
+    name: "AWS"
+  - &stripe
+    color: "#000000"
+    name: "Stripe"
+  - &canvas
+    color: "#000000"
+    name: "Canvas"
+
+
 projects:  
-  
   - name: Ono
     slug: ono
-    description: Ono est une application web développé à l'aide du framework MVC symfony. 
-      Il fût réaliser dans le cadre de mon projet tuteuré de MMI. 
-      Le but était de faire prendre conscience de l'impact de la révolution digital dans le monde entier.
-      A travers d'un système d'articles participatif et d'un système de question réponse poussé. Ono invite des utilisateurs du monde entier à échanger sur des domaines impacté par le numérique. 
-      Article et Réflexion sont lié les unes aux autres à l'aide d'un système de tag intéligent accompagnant le lecteur et l'invitant à passer de notion en notion.
-      Afin de donner une dimension immersive et intéractive à ce projet une expérience intéractive en béta test a également était développer permettant d'écouter des témoignages diverses de personne du monde entier dont le numérique a drastiquement changé la vie. 
-
+    content: Ono est une application web développé à l'aide du framework MVC symfony. Il fût réaliser dans le cadre de mon projet tuteuré de MMI. Le but était de faire prendre conscience de l'impact de la révolution digital dans le monde entier. A travers d'un système d'articles participatif et d'un système de question réponse poussé. Ono invite des utilisateurs du monde entier à échanger sur des domaines impacté par le numérique. Article et Réflexion sont lié les unes aux autres à l'aide d'un système de tag intéligent accompagnant le lecteur et l'invitant à passer de notion en notion. Afin de donner une dimension immersive et intéractive à ce projet une expérience intéractive en béta test a également était développer permettant d'écouter des témoignages diverses de personne du monde entier dont le numérique a drastiquement changé la vie. 
     thumbnail: projects/ono.png
     photos: 
     url: http://ono-.herokuapp.com/uxinteractive
-    skills: 
-      - Sass
-      - THREE.js
-      - Symfony
-      - AWS
-      - Heroku
+    date: 2017-05-01
+    repository: https://github.com/SolalDR/Ono
+    skills: [*sass, *three, *symfony, *aws, *heroku]
 
   - name: Sock-It
     slug: sock-it
-    description: Sock-it est un site de e-commerce développer à l'aide du framework MVC Ruby On Rails. 
-      Il a été réalisé dans le cadre d'un cour de gestion de projet dont l'objectif était d'expérimenter la gestion de projet en mode agile. 
-      La finalité de Sock-it n'est donc pas de vendre des chaussettes bien que ce secteur d'activité soit passionant mais bien d'apréhender des questions éssentiel lié au e-commerce.
-      A l'heure actuelle où la gestion d'un site e-commerce est une chose grandement facilité par des outils fortement apprécié comme Prestashop, Magento ou même Woocommerce, 
-      le choix du framework Ruby-On-Rails nous a permis de repenser l'architecture d'un site de vente à zéro pour mieux en comprendre sa pertinence. 
-      Le projet intègre donc un système gestion de catalogue classique permettant un gestion des catégorie, des variations de produits, des promotions, etc...
-      Un tunel de conversion natif a également été développer, couplé à l'intégration du module de paiment Stripe. 
+    content: Sock-it est un site de e-commerce développer à l'aide du framework MVC Ruby On Rails. Il a été réalisé dans le cadre d'un cour de gestion de projet dont l'objectif était d'expérimenter la gestion de projet en mode agile. La finalité de Sock-it n'est donc pas de vendre des chaussettes bien que ce secteur d'activité soit passionant mais bien d'apréhender des questions éssentiel lié au e-commerce. A l'heure actuelle où la gestion d'un site e-commerce est une chose grandement facilité par des outils fortement apprécié comme Prestashop, Magento ou même Woocommerce, le choix du framework Ruby-On-Rails nous a permis de repenser l'architecture d'un site de vente à zéro pour mieux en comprendre sa pertinence. Le projet intègre donc un système gestion de catalogue classique permettant un gestion des catégorie, des variations de produits, des promotions, etc... Un tunel de conversion natif a également été développer, couplé à l'intégration du module de paiment Stripe. 
     thumbnail: projects/sockit.png
     photos: 
     url: http://sock--it.herokuapp.com/
-    skills: 
-      - Ruby-On-Rails
-      - Sass
-      - AWS
-      - Heroku
-      - Stripe
+    repository: https://github.com/SolalDR/Sock-It
+    date: 2016-12-01
+    skills: [*ruby-on-rails, *sass, *aws, *heroku, *stripe]
 
   - name: Make ICI
     slug: sock-it
-    description: Make ICI est un site de e-commerce basé sur Woocommerce. 
+    content: Originellement le Fablab d'ICI Montreuil, il est devenu Make ICI en 2017, un réseau de manufactures collaboratives et solidaires. MakeICI pour vocation de développer la culture "makers", une culture de créateur et entrepreneurs. Dans une dynamique collaborative, de partage et d'artisanat, MakeICI met en relation au sein de ses manufactures des artisans, artistes, designers, startups et entrepreneurs du “Faire”. J'ai été amené dans le cadre de mon alternance à réaliser un multi-site sur Wordpress. Le multi-site regroupe tout les sites dépendants de MakeICI comme ICI Montreuil, ICI Marseille, ICI The Camp d'autres en prévision comme ICI Lille, ICI Bordeaux. Dans le cadre de la réalisation du thème wordpress commun à tout les sites, j'ai été amené à développer plusieurs fonctionnalité comme un plugin évènementiel sur Woocommerce ou un système d'automatisation d'envoi des e-mail.
     thumbnail: projects/makeici.png
     photos: 
+    date: 2017-10-01
     url: http://makeici.org/
-    skills: 
+    repository: https://github.com/FCPDigital/Make-ici
+    skills: [*wp, *woo, *sass]
 
   - name: Climate Data
     slug: climate-visualisation
-    description: 
+    content: Climate-Datavisualisation est une expérience intéractive visant à mettre en image 
     thumbnail: projects/climate.png
     photos: 
+    date: 2017-11-01
     url: http://climate.solaldussout-revel.com
-    skills: 
+    repository: https://github.com/SolalDR/Climate-Visualisation
+    skills: [*three, *vue, *es6, *three, *webpack, *google-map, *open-street-map]
   
   - name: Pont des Arts
     slug: pont-des-arts
-    description: 
+    content: Ce projet est une expérience sonore réaliser avec HTML Canvas. Il met en forme une succession de polygon régulier répondant en chaîne à l'intensité de la musique passé. Un panneau de contôle permet d'éditer les paramètre comme la dispersion des polygon, leur échelle, le nombre de côté, leur rotatio maximum, etc...
     thumbnail: projects/sound-canvas.png
     photos: 
+    date: 2017-10-01
+    repository: https://github.com/SolalDR/CanvasExperiment/tree/master/TrucChelou
     url: https://solaldr.github.io/CanvasExperiment/TrucChelou/
-    skills: 
-
+    skills: [*canvas, *sound]
+  
   - name: 421
     slug: 421-game
-    description: 
+    content: Le 421 est un jeu populaire qui se joue à l'aide de 3 dès. Afin de favoriser la prise de score, j'ai développé une application Android.
     thumbnail: projects/421.png
     photos: 
     url: http://421.solaldussout-revel.com/
-    skills: 
+    date: 2017-02-01
+    repository: https://github.com/SolalDR/421-vue
+    skills: [*android, *vue]
 
   - name: God Planetes
     slug: 3D-expe
-    description: 
+    content: 
     thumbnail: projects/godplanete.png
     photos: 
+    date: 2017-10-10
+    repository: https://github.com/SolalDR/SoundExpe
     url: http://projets.gobelins.fr/bddi/2018/3d-music-xp/project/dussout-revel-solal
-    skills: 
+    skills: [*three, *sound]
 
   - name: Canvas Experiences
     slug: 2D-expe
-    description: 
+    content: Dans le cadre de notre module de creative developpement en canvas 2D, j'ai été amené à réaliser plusieurs expériences...
     thumbnail: projects/canvas.png
     photos: 
     url: https://solaldr.github.io/CanvasExperiment/
-    skills: 
+    date: 2017-10-01
+    repository: https://github.com/SolalDR/CanvasExperiment/
+    skills: [*canvas]
 
   - name: Texposoù
     slug: texposou
-    description: 
+    content: 
     thumbnail: projects/texposou.png
     photos: 
+    date: 2017-04-01
     url: https://texposou.fr/
-    skills:
+    repository: https://github.com/bastienrobert/texposou
+    skills: [*aws, *heroku, *ruby-on-rails, *sass]
 
   - name: Pachamama Project
-    slug: texposou
-    description: 
+    slug: pachamama
+    content: 
     thumbnail: projects/texposou.png
     photos: 
-    url: https://texposou.fr/
-    skills:
+    date: 2018-01-07
+    url: https://solaldr.github.io/Pachamama/
+    repository: https://github.com/SolalDR/Pachamama
+    skills: [*three]
 
   - name: Festival National du Film d'Animation
-    slug: texposou
-    description: 
+    slug: fnfa
+    content: 
     thumbnail: projects/texposou.png
     photos: 
-    url: https://texposou.fr/
-    skills:
+    date: 2018-02-15
+    url: null
+    repository: https://github.com/SolalDR/FNFA-2018
+    skills: [*android, *kotlin]

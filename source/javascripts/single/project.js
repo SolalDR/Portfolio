@@ -1,9 +1,13 @@
 
-export default {
+export default class Project {
+	constructor(el, ctx) {
+		this.el = el;
 
-	init: function(ctx){
+
+		this.container = this.el.querySelectorBEM(".project", "project");
+		this.close = this.el.querySelector(".project__close");
+
 		this.ctx = ctx;
-		this.ctx.bg.clipCanvas.displayArrow("left");
-	}
 
+	}
 }

@@ -1,6 +1,6 @@
 export default {
 	bg: {
-		precision: 20	
+		precision: 30	
 	},
 
 	anim: {
@@ -11,5 +11,7 @@ export default {
 		scroll: 1500
 	},
 
-	guides: true
+	guides: true,
+	matrixForce: 3000 // L'importance de l'effet de perspective sur la section works
+
 }

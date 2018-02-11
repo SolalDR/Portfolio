@@ -1,0 +1,35 @@
+<div class="project">
+	
+	<a href="#" class="project__close">
+		<svg height="30" width="30">
+			<line class="line1" x1="0" y1="0" x2="30" y2="30" />
+			<line class="line2" x1="0" y1="30" x2="30" y2="0" />
+		</svg> 
+	</a>
+
+	<div class="project__header">
+		<p class="project__title">
+			<%= project.name %>
+		</p>
+		<p class="project__date">
+			<%= project.date %>
+		</p>
+		<div class="project__skills">
+			<% project.skills.each do |s| %>
+				<span class="project__skill" style="background-color: <%= s.color %>"><%= s.name %></span>
+			<% end %>
+		</div>
+	</div>
+
+	<div class="project__content">
+		<%= project.content %>
+	</div>
+
+	<div class="project__actions">
+		<% if project.url %>
+			<a class="project__action" target="_blank" href="<%= project.url %>">Voir le projet</a>
+		<% end %>
+		<a class="project__action" target="_blank" href="<%= project.repository %>">Github</a>
+	</div>
+
+</div>

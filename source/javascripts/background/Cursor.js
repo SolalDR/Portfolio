@@ -17,7 +17,9 @@ class Cursor {
 			speed: 0.2
 		}
 
-		this.el = document.getElementById("cursor");
+		this.bem = document.querySelectorBEM("#cursor", "cursor");
+		this.el = this.bem.el;
+
 		this.position =  { x: 0, y: 0 }; 
 		this.targetPosition = { x: 0, y: 0 };
 		this.vertexPosition = [0, 0];
@@ -37,6 +39,8 @@ class Cursor {
 	move(coords){
 		this.targetPosition = coords;
 	}
+
+
 	
 }
 

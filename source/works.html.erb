@@ -16,10 +16,19 @@ slug: works
 		<div class="projects">
 			<% data.projects.projects.each do |project| %>
 
-				<div class="projects__item animate">
-					<div class="projects__item-frame">
-						<p class="projects__item-title"><%= project.name %></p>
+				<div class="projects__item">
+					<div class="projects__item-container animate">
+						<div class="projects__item-perspective">
+							<div class="projects__item-miniature">
+								<p class="projects__item-title"><%= project.name %></p>
+							</div>
+							<div class="projects__item-full">
+								<%= partial(:project, :locals => { :project => project }) %>
+							</div>
+						</div>
+						
 					</div>
+					
 				</div>		
 			<% end %>
 		</div>

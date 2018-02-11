@@ -3,157 +3,156 @@ window.requestAnimationFrame = window.requestAnimationFrame || window.mozRequest
 window.cancelAnimationFrame = window.cancelAnimationFrame || window.mozCancelAnimationFrame;
 
 
+import Project from "./project.js"
+import c from "./../config.js"
+
+function offset(elem) {
+    if(!elem) elem = this;
+
+    var x = elem.offsetLeft;
+    var y = elem.offsetTop;
+
+    while (elem = elem.offsetParent) {
+        x += elem.offsetLeft;
+        y += elem.offsetTop;
+    }
+
+    return { left: x, top: y };
+}
+
 
 export default {
 
-	init: function(ctx){
+
+
+	init(ctx){
 		this.ctx = ctx;
 		this.ctx.bg.clipCanvas.displayArrow("left");
 
-		this.projectsFrame = document.querySelectorAll(".projects__item-frame");
+		this.projectsFrame = document.querySelectorAll(".projects__item-perspective");
 		this.projects = document.querySelectorAll(".projects__item");
-		for(var i=0; i<this.projects.length; i++){
-			this.moverEvent(this.projects[i], this.projectsFrame[i]);
+		this.projectsContainer = document.querySelectorAll(".projects__item-container");
+		for(var i=0; i<this.projects.length; i++){	
+			this.initProject(this.projects[i], this.projectsFrame[i], this.projectsContainer[i]);
 		}
 	},
 
-	moverEvent: function(el, elFrame){
 
-		var wrap = elFrame; 
+	isProjectDisplay(el){
+		if( el.className.match("projects__item-container--full") ){
+			return true; 
+		}
+		return false;
+	},
+
+	displayProject(el, block){
+		// Si miniature, on ajoute 
+		if( !el.className.match("projects__item-container--full")){
+			console.log(this.ctx.bg.cursor);
+			el.className += " projects__item-container--full"
+			el.setAttribute("style", `top: ${window.scrollTop}px;`);
+		}
+		this.ctx.bg.cursor.bem.addMod("light");
+	},
+
+	hideProject(el, block){
+		var position = offset(block)
+		
+		setTimeout(function(){
+			c.matrixForce = 3000;
+		}, 2000)
+		
+		el.setAttribute("style", `left: ${position.left}px; top: ${position.top}px`);
+		if( el.className.match("projects__item-container--full")){
+			el.className = el.className.replace("projects__item-container--full", "");
+		}
+		this.ctx.bg.cursor.bem.removeMod("light");
+	},
+
+	initProject(block, blockPerspective, blockContainer){
+		this.moverEvent(block, blockPerspective);
+
+
+
+		this.hideProject(blockContainer, block);
+
+		var project = new Project(block, this);
+
+
+		window.addEventListener("resize", () => {
+			this.hideProject(blockContainer, block);
+		})
+
+		window.addEventListener("scroll", () =>{
+			this.hideProject(blockContainer, block);
+		})
+
+		block.addEventListener("click", () => {
+			console.log("Open")
+			if( !this.isProjectDisplay(blockContainer)) {
+				this.displayProject(blockContainer, block);
+			}
+		})
+
+		project.close.addEventListener("click", (e) => {
+			console.log("Close")
+			this.hideProject(blockContainer, block);
+			e.stopPropagation();
+			e.preventDefault();
+		})
+
+	},
+
+	moverEvent(el, elFrame){
+
 		var x = 0; 
 		var y = 0;
 		var raf;
-		var intensity = 3000;
 
 		var render = function(){
-			var xClauth = false;
-			var yClauth = false;
-			var speed = 0.05;
-			var dist = 0.05;
+			var xClauth = false, yClauth = false, speed = 0.05, dist = 0.05;
 
 			if ( Math.abs(x) > dist ){
-				if( x < 0 ){
-					x += speed;
-				} else {
-					x -= speed
-				}
+				x = x < 0 ? x + speed : x - speed;
 			} else {
 				xClauth = true
 			}
 
 			if ( Math.abs(y) > dist ){
-				if( y < 0 ){
-					y += speed;
-				} else {
-					y -= speed
-				}
+				y = y < 0 ? y + speed : y - speed;
 			} else {
 				yClauth = true
 			}
+
 
 			if( xClauth && yClauth ){
 				cancelAnimationFrame(raf);
 				return; 
 			} 
 
-
-			elFrame.setAttribute("style", `transform: matrix3d(1,0,0.00, ${x/intensity},0.00,1, 0.00, ${y*2/intensity},0,0,1,0,0,0,0,1)`) 
+			elFrame.setAttribute("style", `transform: matrix3d(1,0,0.00, ${x/c.matrixForce},0.00,1, 0.00, ${y*2/c.matrixForce},0,0,1,0,0,0,0,1)`) 
 			raf = requestAnimationFrame(render);
 		}
 		
-
-		
 		el.addEventListener("mouseleave", function(e) {
-			
 			raf = requestAnimationFrame(render);
 		})
-
 
 		elFrame.addEventListener("mousemove", function(e) {
 			var w = elFrame.offsetWidth;
 			var h = elFrame.offsetHeight;
-			var center = w / 2;
-			var middle = h / 2;
+			
+			var w2 = w / 2;
+			var h2 = h / 2;
 			
 		    x = e.layerX - elFrame.offsetLeft; 
 		    y = e.layerY - elFrame.offsetTop;
 
-			var gradientX = 1 - (x / w);
-			var gradientY = 1 - (y / h);
-			
-			if(x < center) {
-				x = 1 - (x / center);
-				x = -x;
-			}else {
-				x = (x - center)/center; 
-			}
-			
-			if(y < middle) {
-				y = 1 - (y / middle);
-				y = -y;
-			}else {
-				y = (y - middle)/middle; 
-			}
+			x = (x < w2) ? -1*(1 - (x / w2)) : (x - w2)/w2;
+			y = (y < h2) ? -1*(1 - (y / h2)) : (y - h2)/h2;
 				
-			elFrame.setAttribute("style", `transform: matrix3d(1,0,0.00, calc(${x}/3000),0.00,1, 0.00, calc(${y}/3000),0,0,1,0,0,0,0,1)`) 
+			elFrame.setAttribute("style", `transform: matrix3d(1,0,0.00, ${x/c.matrixForce},0.00,1, 0.00, ${y/c.matrixForce},0,0,1,0,0,0,0,1)`) 
 		});
-
-	
 	}
 
-		// });	
-		// el.addEventListener("mouseenter", (e) => {
-		// 	// console.log('Mouseenter')
-		// 	this.raf = requestAnimationFrame(this.render.bind(this));
-		// 	var reg = /rotate3d\((\d)\,(\d)\,(\d)\,.+?\)/
-		// 	var style = el.getAttribute("style") ? el.getAttribute("style") : "";
-
-		// 	this.current = style.match(reg);
-		// 	if(this.current === null) {
-		// 		this.current = [0, 0, 0];
-		// 	}
-		// 	this.targetEl = el;
-		// 	this.target = {
-		// 		x: e.layerX/el.offsetWidth * 2 - 1,
-		// 		y: e.layerX/el.offsetHeight * 4 - 2
-		// 	}
-
-		// 	if( !el.className.match("projects__item--hover")){
-		// 		el.className += " projects__item--hover";	
-		// 	}
-		// });
-
-		// // var target = 
-		// el.addEventListener("mousemove", (e) => {
-		// 	// console.log('Mousemove')
-		// 	this.target = {
-		// 		x: (e.layerX/el.offsetWidth * 2 - 1) * 30,
-		// 		y: -1 * (e.layerY/el.offsetHeight * 2 - 1) * 30
-		// 	}
-		// })
-
-
-		// el.addEventListener("mouseleave", (e) => {
-		// 	// console.log('Mouseleave')
-		// 	cancelAnimationFrame(this.raf)
-		// 	this.targetEl = null;
-		// 	this.target = null;
-		// 	if( el.className.match("projects__item--hover")){
-		// 		el.className = el.className.replace("projects__item--hover");	
-		// 	}
-		// 	el.style = `transform: rotate3d(0,0,0,10deg)`
-		// })
-
-	// render: function(){
-	// 	// console.log("render")
-	// 	if( this.targetEl ){
-	// 		// this.current[0] += (this.target.x - this.current[0]) * 0.1; 
-	// 		// this.current[1] += (this.target.y - this.current[1]) * 0.1;
-	// 		// this.current[0] = this.target.x
-	// 		// this.current[1] = this.target.y
-	// 		this.targetEl.style = `transform: rotateX(${this.target.y}deg) rotateY(${this.target.x}deg)`
-	// 		// console.log(this.current)
-	// 	}
-	// 	this.raf = requestAnimationFrame(this.render.bind(this));
-	// }
 }

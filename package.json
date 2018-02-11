@@ -17,9 +17,10 @@
     "file-loader": "^1.1.6",
     "gl-matrix": "latest",
     "img-loader": "^2.0.1",
+    "import-glob-loader": "^1.1.0",
     "regl": "latest",
-    "webpack": "^3.10.0",
     "url-loader": "latest",
+    "webpack": "^3.10.0",
     "webpack-glsl-loader": "^1.0.1"
   }
 }

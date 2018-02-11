@@ -23,7 +23,13 @@ module.exports = {
   },
 
   module: {
+    
     loaders: [
+      {
+        enforce: 'pre',
+        test: /\.(scss|sass)$/i,
+        loader: 'import-glob-loader'
+      },
       {
         test: /source\/assets\/javascripts\/.*\.js$/,
         exclude: /node_modules|\.tmp|vendor/,
