@@ -20,7 +20,7 @@ class ClipCanvas {
 		});
 
 		// document.body.appendChild(this.canvas);
-		// this.canvas.className += "debug";
+		this.canvas.className += "debug";
 
 		this.loadResource();
 		this.draw();

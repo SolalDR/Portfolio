@@ -18,12 +18,18 @@
 			width: 350px
 			height: 200px
 			transition: 1s
+
+			&--leaving
+				z-index: 999
+
 			&--full
 				width: calc(100% + 50px)
 				height: calc(100% + 50px)			
 				z-index: 999
 				top: 0 
 				left: -25px
+
+		
 
 				.projects__item-perspective
 					transition: .3s
@@ -64,6 +70,8 @@
 			width: 100%
 			height: 100%
 			transition: .5s ease-in-out
+			background-size: cover
+			background-position: center
 
 
 		&-full

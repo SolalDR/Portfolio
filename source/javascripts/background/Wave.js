@@ -6,7 +6,7 @@ class Wave {
 	constructor(cursor){
 		this.config = {
 			speed: 15,
-			strength: 3,
+			strength: 6,
 			strengthStep: 0.15,
 			weight: 100
 		}

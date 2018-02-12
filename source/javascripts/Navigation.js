@@ -115,6 +115,9 @@ class Navigation {
 
 	load(){setTimeout(() => {
 		
+		// console.log(this.visit.source)
+		this.bg.cursor.addTargetLinks(this.visit.source)
+
 		this.displayMenu();
 		this.fade(false);
 

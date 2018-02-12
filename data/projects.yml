@@ -217,19 +217,19 @@ projects:
   - name: Pachamama Project
     slug: pachamama
     content: 
-    thumbnail: projects/texposou.png
+    thumbnail: projects/pachamama.png
     photos: 
     date: 2018-01-07
     url: https://solaldr.github.io/Pachamama/
     repository: https://github.com/SolalDR/Pachamama
     skills: [*three]
 
-  - name: Festival National du Film d'Animation
-    slug: fnfa
-    content: 
-    thumbnail: projects/texposou.png
-    photos: 
-    date: 2018-02-15
-    url: null
-    repository: https://github.com/SolalDR/FNFA-2018
-    skills: [*android, *kotlin]
+  # - name: Festival National du Film d'Animation
+  #   slug: fnfa
+  #   content: 
+  #   thumbnail: projects/texposou.png
+  #   photos: 
+  #   date: 2018-02-15
+  #   url: null
+  #   repository: https://github.com/SolalDR/FNFA-2018
+  #   skills: [*android, *kotlin]

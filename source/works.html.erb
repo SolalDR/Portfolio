@@ -19,8 +19,9 @@ slug: works
 				<div class="projects__item">
 					<div class="projects__item-container animate">
 						<div class="projects__item-perspective">
-							<div class="projects__item-miniature">
-								<p class="projects__item-title"><%= project.name %></p>
+							<div class="projects__item-miniature" 
+							style='background-image: url("/images/<%= project.thumbnail %>");'>
+								<p class="projects__item-title"><%#= project.name %></p>
 							</div>
 							<div class="projects__item-full">
 								<%= partial(:project, :locals => { :project => project }) %>

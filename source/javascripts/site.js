@@ -26,10 +26,10 @@ window.addEventListener("load", function(){
 // Avant chaque chargement
 document.addEventListener("asap:before-load", (e) => {
 	e.preventDefault();
-	nav.visit = e.detail; 	// Prepare le chargement de la visite
+	nav.visit = e.detail; 			// Prepare le chargement de la visite
 
 	setTimeout(function(){
-		e.detail.load();	// Charge la visite
+		e.detail.load();			// Charge la visite
 	}, config.anim.load.before)
 })
 

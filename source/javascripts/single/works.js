@@ -62,9 +62,12 @@ export default {
 			c.matrixForce = 3000;
 		}, 2000)
 		
-		el.setAttribute("style", `left: ${position.left}px; top: ${position.top}px`);
+		el.setAttribute("style", `left: ${position.left}px; top: ${position.top}px;`);
 		if( el.className.match("projects__item-container--full")){
-			el.className = el.className.replace("projects__item-container--full", "");
+			el.className = el.className.replace("projects__item-container--full", "projects__item-container--leaving");
+			setTimeout(function(){
+				el.className = el.className.replace("projects__item-container--leaving", "");
+			}, 1000)
 		}
 		this.ctx.bg.cursor.bem.removeMod("light");
 	},
