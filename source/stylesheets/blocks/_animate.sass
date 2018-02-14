@@ -4,6 +4,11 @@
 	opacity: 1
 	transition: 1s
 
+	&--delay
+		@for $i from 1 through 10
+			&-#{$i}
+				transition: 0.5s ease-in-out $i*0.1s
+
 	&--fade
 		opacity: 0
 

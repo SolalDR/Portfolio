@@ -2,25 +2,25 @@ fr:
   
   home:
     title: Solal Dussout-Revel
-    subtitle: Développeur Web
+    subtitle: Developpeur Web
     meta_title: Solal Dussout-Revel | Développeur Web
     meta_description: Je suis un jeune développeur de talent
   
   works:
-    menu_title: Mes <strong>travaux</strong>
-    title: Mes <strong>travaux</strong>
+    menu_title: Mes travaux
+    title: Mes travaux
   
   contact:
-    menu_title: <strong>Contactez</strong> moi
-    title: <strong>Contactez</strong> moi
+    menu_title: Contactez moi
+    title: Contactez moi
 
   about:
-    menu_title: <strong>A Propos</strong>
-    title: <strong>A Propos</strong>
+    menu_title: A Propos
+    title: A Propos
 
   skills:
-    menu_title: Mes <strong>compétences</strong>
-    title: Mes <strong>compétences</strong>
+    menu_title: Mes competences
+    title: Mes competences
 
   actions: 
     send: Envoyer

@@ -5,21 +5,16 @@ slug: contact
 
 <div class="contact center-y">
 
-	<div class="menu">
-		<div class="bg-light-a menu__item menu__item--top-left menu__item--hide">
-			<%= t(:menu_title, scope: [:contact]) %>
-		</div>
-	</div>
-
 	<div class="wrapper center-x">
+		<h1 class="title title--page animate"><%= t(:title, scope: [:contact]) %></h1>
 		<div class="form__container">
 			<form class="form" action="/postmail.php">
-				<input class="form__input animate" type="text" name="name" placeholder="Nom">
-				<input class="form__input animate" type="text" name="email" placeholder="E-mail">
-				<input class="form__input animate" type="text" name="subject" placeholder="Sujet">
-				<textarea class="form__text animate" name="content" id="" cols="30" rows="10" placeholder="Message"></textarea>
+				<input class="form__input animate animate--fade-right-2 animate--delay-1" type="text" name="name" placeholder="Nom">
+				<input class="form__input animate animate--fade-right-2 animate--delay-2" type="text" name="email" placeholder="E-mail">
+				<input class="form__input animate animate--fade-right-2 animate--delay-3" type="text" name="subject" placeholder="Sujet">
+				<textarea class="form__text animate  animate--fade-right-2 animate--delay-4" name="content" id="" cols="30" rows="10" placeholder="Message"></textarea>
 				<div class="center-x">
-					<input type="submit" class="form__submit animate" value="Envoyer">	
+					<input type="submit" class="form__submit animate animate--fade-right-2 animate--delay-5" value="Envoyer">	
 				</div>
 				
 			</form>
@@ -27,5 +22,5 @@ slug: contact
 	</div>
 
 	<%#= link_to "", "/" ,class: "hide-link hide-link--top", :data => { :animate => "bottom" } %>
-	<%= link_to "", "/" ,class: "guide-link guide-link--hide guide-link--top", :data => { :animate => "bottom" } %>
+	<%= link_to "", "/" ,class: "guide-link guide-link--hide guide-link--right", :data => { :animate => "left" } %>
 </div>

@@ -6,68 +6,55 @@ $bar-marge: 20px
 .menu
 	&__item
 		position: fixed
-		width: 250px
 		text-align: left
 		transform-origin: 0px
 		text-transform: uppercase
 		font-size: 20px
 		transition: .5s ease-in-out
 		opacity: 1
-
+		font-family: $family-nd
+		text-align: center
 		transform: translate3d(0, 0, 0)
+		word-wrap: break-word
+		text-decoration: none
+		color: $color-nd
+		padding: 25px 30px
+		color: #eaeaea99
+		padding: 25px 30px
+		letter-spacing: 10px
+		line-height: 30px
+		z-index: 2
+
+		&:hover
+			color: white
+
 		&--hide
-			opacity: 0
-
-		a 
-			text-decoration: none
-			color: $color-nd
-
-		&::after
-			content: ""
-			display: block
-			position: absolute
-			height: 4px
-			background-color: $color-nd
-			width: $bar-w
-			left: #{-1 * ($bar-w + $bar-marge)}
-			bottom: 7px
-
-		strong
-			font-weight: bold			
+			opacity: 0	
 	
-		&--top-left
-			top: $marge
-			left: $marge + $marge-side
-			&.menu__item--hide
-				// left: -100%
-				transform: translate3d(-100%, 0, 0)
+		&--top
+			top: 0
+			left: 50%
+			transform: translateX(-50%)
+			text-align: center
 
-		&--top-right
-			top: $marge + $marge-side
-			left: calc(100% - #{$marge})
-			transform: rotate(90deg) translateY(50%)
-			&.menu__item--hide
-				// top: -100%
-				transform: rotate(90deg) translate3d(-100%, 50%, 0)
+		&--right
+			right: 0
+			top: 50%
+			width: 25px
+			transform: translateY(-50%)
 
-		&--bottom-left
-			bottom: $marge + $marge-side
-			left: $marge 
-			transform: rotate(-90deg) translateY(50%)
-			&.menu__item--hide
-				// bottom: -100%
-				transform: rotate(-90deg) translate3d(-100%, 50%, 0)
+		&--bottom
+			bottom: 0
+			left: 50%
+			transform: translateX(-50%)
+			width: auto
 
-		&--bottom-right
-			bottom: $marge
-			right: $marge + $marge-side
-			text-align: right
+		&--left
+			left: 0
+			width: 20px
+			top: 50%
+			transform: translateY(-50%)
 
-			&::after 
-				width: 80px
-				right: -90px
-				left: auto
+		
 
-			&.menu__item--hide
-				// right: -100%
-				transform: translate3d(100%, 0, 0)
+

@@ -16,7 +16,10 @@ export default {
 			translate:  [window.innerWidth/3 , window.innerHeight/2]
 		})
 
-		this.ctx.clipCanvas.draw();
+		this.ctx.bg.launchAnimation();
+		this.ctx.bg.updateUntil(5000);
+
+		this.ctx.bg.clipCanvas.draw();
 	},
 
 

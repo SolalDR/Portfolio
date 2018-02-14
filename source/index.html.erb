@@ -7,21 +7,17 @@ slug: home
 
 	<div class="menu">
 		
-		<div class="bg-light-a menu__item menu__item--top-left menu__item--hide">
-			<%= link_to t(:menu_title, scope: [:skills]), "/skills.html", :data => { :animate => "right" } %>
-		</div>
 		
-		<div class="bg-light-a menu__item menu__item--top-right menu__item--hide">
-			<%= link_to t(:menu_title, scope: [:about]), "/about.html", :data => { :animate => "bottom" } %>
-		</div>
+			<%= link_to t(:menu_title, scope: [:skills]), "/skills.html", class: "bg-light-a menu__item menu__item--top menu__item--hide", :data => { :animate => "bottom" } %>
 		
-		<div class="bg-light-a menu__item menu__item--bottom-right menu__item--hide">
-			<%= link_to t(:menu_title, scope: [:works]), "/works.html", :data => { :animate => "left" } %>
-		</div>
 		
-		<div class="bg-light-a menu__item menu__item--bottom-left menu__item--hide">
-			<%= link_to t(:menu_title, scope: [:contact]), "/contact.html", :data => { :animate => "top" } %>
-		</div>
+			<%= link_to t(:menu_title, scope: [:about]), "/about.html", class: "bg-light-a menu__item menu__item--right menu__item--hide", :data => { :animate => "left" } %>
+		
+		
+			<%= link_to t(:menu_title, scope: [:works]), "/works.html", class: "bg-light-a menu__item menu__item--bottom menu__item--hide", :data => { :animate => "top" } %>
+		
+		
+			<%= link_to t(:menu_title, scope: [:contact]), "/contact.html", class: "bg-light-a menu__item menu__item--left menu__item--hide", :data => { :animate => "right" } %>
 		
 	</div>
 

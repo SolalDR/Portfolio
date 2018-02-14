@@ -186,7 +186,7 @@ projects:
 
   - name: God Planetes
     slug: 3D-expe
-    content: 
+    content: God-Planetes est une expérience sonore en THREE.js. 
     thumbnail: projects/godplanete.png
     photos: 
     date: 2017-10-10
@@ -206,7 +206,7 @@ projects:
 
   - name: Texposoù
     slug: texposou
-    content: 
+    content: Texposoù est un projet d'application Web réaliser dans le cadre d'un workshop d'une semaine en MMI. Il s'agit d'une plateforme permettant de mettre en relation des artistes indépendant avec des lieux d’expositions. A travers d’une plateforme communautaire, l’utilisateur peut manager différents lieux et organiser des expositions auxquelles des artistes pourront venir s’inscrire. Dans cette relation exposant-exposé, le bénéfice est à double sens. Un bar peut par exemple donné de la visibilité à un artiste tout en donnant vie à son lieu. Pour remplir ce défi,  nous avons utiliser le framework MVC Ruby-On-Rails.
     thumbnail: projects/texposou.png
     photos: 
     date: 2017-04-01
@@ -216,7 +216,7 @@ projects:
 
   - name: Pachamama Project
     slug: pachamama
-    content: 
+    content: Pachamama est un projet THREE.js permettant de créer des arbres génératif. Un controlleur Dat-GUI permet d'éditer l'ensemble des paramètre pour créer des variations d'arbres. 
     thumbnail: projects/pachamama.png
     photos: 
     date: 2018-01-07

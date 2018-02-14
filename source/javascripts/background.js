@@ -19,6 +19,8 @@ class Background {
 		this.now = Date.now();
 		this.scrollController = new ScrollController();
 		this.endRaf = Date.now() + 1000;
+
+		this.animationStart = 0;
 		
 		// Some features
 		this.cursor = new Cursor();
@@ -78,6 +80,11 @@ class Background {
 		// The buffers
 		var bufferLocalPosition = [];
 		var bufferPosition = [];
+		var animationDelay = [];
+		var animationDuration = [];
+		var weights = [];
+
+		var delay, weight, duration; 
 
 		// Loop in each point and compute buffers
 		for(var i=0; i<this.points.length; i++){
@@ -88,6 +95,15 @@ class Background {
 				[geometry[2].x, geometry[2].y]
 			);
 
+			delay = Math.random()*500 + 400;
+			animationDelay.push( delay, delay, delay)
+		
+			duration = Math.random()*300 + 200;
+			animationDuration.push(duration, duration, duration)
+
+			weight =  Math.random()*6+3;
+			weights.push(weight, weight, weight)
+
 			// The position of instance
 			bufferPosition.push( this.points[i], this.points[i], this.points[i] );
 		}
@@ -95,7 +111,10 @@ class Background {
 		// Store mesh info
 		this.meshInfo = {
 			position: bufferPosition,
-			localPosition: bufferLocalPosition
+			localPosition: bufferLocalPosition,
+			delays: animationDelay,
+			durations: animationDuration,
+			weights : weights
 		}
 	
 	}
@@ -131,9 +150,13 @@ class Background {
 			this.drawTriangle = this.regl({
 				frag: bgFragment, vert: bgVertex,
 				attributes: { 	position: this.meshInfo.position, 
-								localPosition: this.meshInfo.localPosition },
+								localPosition: this.meshInfo.localPosition,
+								delay: this.meshInfo.delays,
+								duration: this.meshInfo.durations,
+								weight: this.meshInfo.weights },
 				uniforms: {
 					time: () => { return this.elapsedTime },
+					start: () => { return this.animationStart },
 					mouse: () => {  return this.cursor.vertexPosition },
 					waveCoords: () => { return this.wave.coords },
 					waveRadius: () => { return this.wave.radius },
@@ -149,9 +172,13 @@ class Background {
 		}, 100)
 	}
 
+	launchAnimation(){
+		this.animationStart = this.elapsedTime;
+	}
 
 	render(){
 		var now = Date.now();
+
 		this.elapsedTime += now - this.now;
 		this.now = now;
 		if( this.needUpdate && this.drawTriangle ){
@@ -177,9 +204,9 @@ class Background {
 		  canvas: this.canvas, 
 		  pixelRatio: window.innerHeight/window.innerHeight
 		});
-		
-		this.updateDrawCommand();
 		this.clipCanvas = new ClipCanvas(this.regl);
+		this.updateDrawCommand();
+		
 	}
 
 	// Init Dom events

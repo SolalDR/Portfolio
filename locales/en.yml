@@ -2,18 +2,29 @@ en:
   
   home:
     title: Solal Dussout-Revel
-    subtitle: Web Developper
+    subtitle: Web Developper in Paris
   
-  menu:
-    works: Mes <strong>travaux</strong>
-    contact: <strong>Contactez</strong> moi
-    about: <strong>A Propos</strong>
-    skills: Mes <strong>compétences</strong>
+  works:
+    menu_title: Works
+    title: Works
+  
+  contact:
+    menu_title: Contact
+    title: Contact
+
+  about:
+    menu_title: About
+    title: About Me
+
+  skills:
+    menu_title: Skills
+    title: Skills
 
   actions: 
-    send: Envoyer
-    back: Retour
+    send: Send
+    back: Back
 
   infos: 
     copyright: © Copyright Solal Dussout-Revel - 2018
+
     

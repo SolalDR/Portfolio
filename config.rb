@@ -22,7 +22,7 @@ activate :external_pipeline,
          source: ".tmp/dist",
          latency: 1
 
-activate :i18n, :mount_at_root => :fr
+activate :i18n, :mount_at_root => :en
 
 set :fonts_dir,  'fonts'
 

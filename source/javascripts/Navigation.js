@@ -15,7 +15,10 @@ class Navigation {
 		this.direction = null;
 
 		this.currentPage = document.querySelector("#body").getAttribute("data-slug");
+		
 		this.execute();
+		
+		
 	}
 
 

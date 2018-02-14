@@ -1,3 +1,6 @@
+// Animation
+uniform float time;
+uniform float start;
 
 // Wave coord start
 uniform vec2 waveCoords;
@@ -18,20 +21,30 @@ uniform vec2 scroll;
 // Position of form 
 attribute vec2 position;
 attribute vec2 localPosition;
+attribute float delay;
+attribute float duration;
+attribute float weight;
 
 // Canvas texture
 uniform sampler2D texture;
 
 varying vec4 color;
 
+float cubicOut(float t) {
+  float f = t - 1.0;
+  return f * f * f + 1.0;
+}
 
 vec4 getColor(vec2 pos, sampler2D text) {
+
+		
 
 
 	// vec4 grey = vec4(0.1, 0.1, 0.1, 1);
 	vec4 grey = vec4(0.2, 0.2, 0.2, 1);
 	vec4 white = vec4(1., 1., 1., 1);
 	vec4 red = vec4(1., 0., 0., 1);
+
 
 
 	vec2 uv = pos;
@@ -46,7 +59,7 @@ vec4 getColor(vec2 pos, sampler2D text) {
 	vec4 c = grey;
 
 	if(pixColor.xy == vec2(0., 0.)) {
-		c = red;
+		c = vec4(.39, .75, .67, 1.); // Blue
 	}
 
 	return c; 
@@ -62,8 +75,9 @@ vec2 boundariesFormat(vec2 vector){
 }
 
 void main() {
-		
-	
+
+	vec4 blue = vec4(.39, .75, .67, 1.);
+	float advancement = cubicOut(max(0., min(1., (time - (delay + start)) / duration)));
 
 	vec2 newPosition = position;
 
@@ -71,6 +85,7 @@ void main() {
 	newPosition.x = mod(position.x + scroll.x, 2.) - 1.;
 
 	color = getColor(newPosition, texture);
+	
 
 
 	vec2 screenPosition = boundariesFormat(newPosition);
@@ -90,8 +105,14 @@ void main() {
 
 	newPosition += localPosition * (1. + intensityMouse*2. + intensityWave);
 	
-	if( color == vec4(1.0, 0., 0., 1) ){
-		newPosition += localPosition * 5.;
+
+	
+	
+
+	if( color == blue ){
+		color = color*advancement + vec4(0.2, 0.2, 0.2, 1.) * (1.-advancement);
+		// color.w = weight/5.;
+		newPosition += localPosition + (localPosition * weight * advancement);
 	} else {
 		newPosition += localPosition;
 	}
