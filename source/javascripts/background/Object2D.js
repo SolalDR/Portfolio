@@ -3,6 +3,7 @@ class Object2D {
 	constructor(args){
 		this.type = args.type;
 		this.source = args.source;
+		this.onLoad = args.onload ? args.onload : null;
 		this.name = args.name ? args.name : null;
 		this.scale = args.scale ? args.scale : [1, 1];
 		this.rotation = args.rotation ? args.rotation : 0; 
@@ -27,6 +28,9 @@ class Object2D {
 	load(src){
 		this.source = new Image(this.width, this.height);
 		this.source.src = src;
+		this.source.addEventListener("load", () => { 
+			this.onLoad();
+		})
 	}
 
 	draw(ctx) {

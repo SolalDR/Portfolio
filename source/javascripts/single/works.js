@@ -48,7 +48,6 @@ export default {
 	displayProject(el, block){
 		// Si miniature, on ajoute 
 		if( !el.className.match("projects__item-container--full")){
-			console.log(this.ctx.bg.cursor);
 			el.className += " projects__item-container--full"
 			el.setAttribute("style", `top: ${window.scrollTop}px;`);
 		}

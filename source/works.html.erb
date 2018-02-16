@@ -5,19 +5,14 @@ slug: works
 
 <div class="works">
 
-	<div class="menu">
-		<div class="bg-light-a menu__item menu__item--top-left menu__item--hide">
-			<%= t(:menu_title, scope: [:works]) %>
-		</div>
-		
-	</div>
+	<h1 class="title title--page title--fixed animate animate--fade-left-2 animate--delay-1"><%= t(:title, scope: [:works]) %></h1>	
 
 	<div class="works__container wrapper">
 		<div class="projects">
-			<% data.projects.projects.each do |project| %>
+			<% data.projects.projects.each_with_index do |project, i| %>
 
-				<div class="projects__item">
-					<div class="projects__item-container animate">
+				<div class="projects__item" data-cursor="link">
+					<div class="projects__item-container animate animate--fade-top-2 animate--delay-<%= i+1 %>">
 						<div class="projects__item-perspective">
 							<div class="projects__item-miniature" 
 							style='background-image: url("/images/<%= project.thumbnail %>");'>

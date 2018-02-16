@@ -31,7 +31,7 @@ class Cursor {
 	}
 
 	addTargetLinks(el){
-		var links = el.querySelectorAll("a");
+		var links = el.querySelectorAll("a, *[data-cursor='link']");
 		for(var i=0; i<links.length; i++){
 			this.reactiveLinks.push(links[i]);
 			((rank) => {

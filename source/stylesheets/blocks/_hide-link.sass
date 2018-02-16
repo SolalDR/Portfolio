@@ -1,38 +1,8 @@
-$size: 130px
 $size2: 80px
-
-.hide-link
-	
-	position: fixed
-	display: block
-	width: $size
-	height: $size
-	&::after
-		content: ""
-		position: absolute
-		background-color: white
-		transition: .3s
-	
-	&--bottom
-		bottom: 0
-		left: calc(50% - #{$size/2})
-
-	&--left
-		left: 0
-		top: calc(50% - #{$size/2})
-
-	&--right
-		right: 0
-		top: calc(50% - #{$size/2})
-
-	&--top
-		top: 0
-		left: calc(50% - #{$size/2})
-
 
 .guide-link
 	
-	position: fixed
+	position: absolute
 	display: block
 	width: $size2
 	height: $size2
@@ -56,6 +26,7 @@ $size2: 80px
 
 	&--bottom
 		bottom: 0
+		position: fixed
 		left: calc(50% - #{$size2/2})
 		&::after
 			transform: rotate(-90deg) scaleX(1)

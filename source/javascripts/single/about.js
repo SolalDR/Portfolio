@@ -13,13 +13,16 @@ export default {
 			type: "img",
 			source: '/images/question.png',
 			name: "question",
-			translate:  [window.innerWidth/3 , window.innerHeight/2]
+			translate:  [window.innerWidth/3 , window.innerHeight/2], 
+			onload: () => {
+
+				this.ctx.bg.launchAnimation();
+				this.ctx.bg.updateUntil(5000);
+				this.ctx.bg.clipCanvas.draw();
+			}
 		})
 
-		this.ctx.bg.launchAnimation();
-		this.ctx.bg.updateUntil(5000);
-
-		this.ctx.bg.clipCanvas.draw();
+	
 	},
 
 

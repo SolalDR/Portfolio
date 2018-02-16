@@ -45,11 +45,13 @@ set :fonts_dir,  'fonts'
 # Methods defined in the helpers block are available in templates
 # https://middlemanapp.com/basics/helper-methods/
 
-# helpers do
-#   def some_helper
-#     'Helping'
-#   end
-# end
+helpers do
+	def sort_by_date(dates, direction="ASC")
+	  sorted = dates.sort
+	  sorted.reverse! if direction == "DESC"
+	  sorted
+	end
+end
 
 # Build-specific configuration
 # https://middlemanapp.com/advanced/configuration/#environment-specific-settings

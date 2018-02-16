@@ -1,0 +1,51 @@
+$bar-color: #46d4c0
+$bar-background: rgba(30, 30, 30, .5)
+$bar-height: 1px
+$bar-radius: 5px
+
+$pointer-width: 10px
+$pointer-height: 10px
+$pointer-radius: 5px
+$pointer-color: #50968f
+
+.progress
+  
+  display: block
+  height: $bar-height
+  width: 100%
+  position: relative
+  background-color: $bar-background
+  border-radius: $bar-radius
+
+  &__bar
+    position: absolute
+    left: 0
+    top: 0
+    width: 0px
+    height: $bar-height
+    background-color: $bar-color
+    transition: 1s
+    border-radius: $bar-radius
+  
+  &--bubble
+    
+    .progress__bar::before
+      content: attr(data-value)
+      display: block
+      position: absolute
+      right: 0
+      top: -25px
+      transform: translateX(50%)
+      
+    .progress__bar::after
+      content: ""
+      display: block
+      position: absolute
+      right: 0
+      top: 50%
+      transform: translateY(-50%)
+      width: $pointer-width
+      height: $pointer-height
+      background-color: $pointer-color
+      border-radius: $pointer-radius
+   

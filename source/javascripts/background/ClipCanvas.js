@@ -51,7 +51,7 @@ class ClipCanvas {
 	addRessource(args) {
 		var res = new Object2D(args);
 		this.ressource.push(res);
-		this.draw();
+		return res;
 	}
 
 
