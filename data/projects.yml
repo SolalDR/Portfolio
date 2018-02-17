@@ -126,7 +126,8 @@ skills:
 projects:  
   - name: Pachamama Project
     slug: pachamama
-    content: Pachamama est un projet THREE.js permettant de créer des arbres génératif. Un controlleur Dat-GUI permet d'éditer l'ensemble des paramètre pour créer des variations d'arbres. 
+    content: Pachamama est un projet THREE.js permettant de créer des arbres génératif. Un controlleur Dat-GUI permet d'éditer l'ensemble des paramètre pour créer des variations d'arbres. Après création de l'architecture logique de l'arbre, la géométrie est crée et affiché à l'écran.
+    content_en: Pachamama is a THREE.js project which allow you to create some generative trees. A Dat-GUI controller enable the control of all parameters to create many tree's variation. After computing the logical architecture of the tree, the 3D geometry is created and displayed.
     thumbnail: projects/pachamama.png
     photos: 
     date: 2018-01-07
@@ -136,7 +137,8 @@ projects:
 
   - name: Climate Data
     slug: climate-visualisation
-    content: Climate-Datavisualisation est une expérience intéractive visant à mettre en image 
+    content: Climate-Datavisualisation est une expérience intéractive visant à mettre en image l'évolution de paramètre environnementaux au travers d'une double lecture spatio/temporelle. Des données de pays du monde entier son récupérer et traité pour conjecturer une approche possible de l'année 2100. Parmi les paramètres récupérés on retrouve la hausse du CO2, de la population, de la température et des informations globales sur la montée des eaux. Ce projet fut réaliser aux Gobelins par équipe de deux (un designer / un developpeur) dans un délai d'une semaine.
+    content_en: Climate-datavisualisation is a interactive experimentation which show you the evolution of some environmental parameters across a dual time and space reading. Datas from all around the world are process to speculate a possible approach of year 2100. Among the collected parameters, there is CO2, population, and temperature evolution. This project has been realized at Gobelin school during a week.
     thumbnail: projects/climate.png
     photos: 
     date: 2017-11-01
@@ -147,6 +149,7 @@ projects:
   - name: God Planetes
     slug: 3D-expe
     content: God-Planetes est une expérience sonore en THREE.js. 
+    content_en: God-Planetes is a sound experiment realized in THREE.js. 
     thumbnail: projects/godplanete.png
     photos: 
     date: 2017-10-10
@@ -156,7 +159,8 @@ projects:
 
   - name: Pont des Arts
     slug: pont-des-arts
-    content: Ce projet est une expérience sonore réaliser avec HTML Canvas. Il met en forme une succession de polygon régulier répondant en chaîne à l'intensité de la musique passé. Un panneau de contôle permet d'éditer les paramètre comme la dispersion des polygon, leur échelle, le nombre de côté, leur rotatio maximum, etc...
+    content: Ce projet est une expérience sonore réaliser avec HTML Canvas. Il met en forme une succession de polygon régulier répondant en chaîne à l'intensité de la musique passé. Un panneau de contôle permet d'éditer les paramètre comme la dispersion des polygon, leur échelle, le nombre de côté, leur rotatio maximum, etc…
+    content_en: This project is a sound experiment realized with HTML Canvas API. It create lot of regular polygons arranged in chain which can move according to music intensity. A Dat-GUI controller allow to edit parameters as polygon spreading, scaling, number of side, rotation, etc…
     thumbnail: projects/sound-canvas.png
     photos: 
     date: 2017-10-01
@@ -167,6 +171,7 @@ projects:
   - name: Canvas Experiences
     slug: 2D-expe
     content: Dans le cadre de notre module de creative developpement en canvas 2D, j'ai été amené à réaliser plusieurs expériences...
+    content_en: During a creative developpement module in HTML Canvas, i was led to realized multiple experimentations...
     thumbnail: projects/canvas.png
     photos: 
     url: https://solaldr.github.io/CanvasExperiment/
@@ -176,7 +181,8 @@ projects:
 
   - name: Texposoù
     slug: texposou
-    content: Texposoù est un projet d'application Web réaliser dans le cadre d'un workshop d'une semaine en MMI. Il s'agit d'une plateforme permettant de mettre en relation des artistes indépendant avec des lieux d’expositions. A travers d’une plateforme communautaire, l’utilisateur peut manager différents lieux et organiser des expositions auxquelles des artistes pourront venir s’inscrire. Dans cette relation exposant-exposé, le bénéfice est à double sens. Un bar peut par exemple donné de la visibilité à un artiste tout en donnant vie à son lieu. Pour remplir ce défi,  nous avons utiliser le framework MVC Ruby-On-Rails.
+    content: Texposoù est un projet d'application Web réalisé durant ma formation de MMI dans le cadre d'un workshop d'une semaine. Il s'agit d'une plateforme permettant de mettre en relation des artistes indépendants avec des lieux d’expositions. Cette plateforme communautaire permet aux utilisateurs de gérer différents lieux et d’organiser des expositions aux-quelles des artistes pourront venir s’inscrire. Dans cette relation exposant-exposé, le bénéfice est à double. Un bar par exemple peut donner de la visibilité à un artiste tout en donnant vie à son lieu. Ce projet fût réalisé à l’aide du framework MVC Ruby-On-Rails.  
+    content_en: Texposoù is a web application realized in MMI during a one-week workshop. It is a platform for connecting independent artists with exhibition places. This community platform allows users to manage different places and organize exhibitions where artists can show their art. In this exponent-exposed relationship, the benefit is double. A bar for example can give visibility to an artist while giving life to his place. This project was realized using the MVC Ruby-On-Rails framework.
     thumbnail: projects/texposou.png
     photos: 
     date: 2017-04-01
@@ -187,6 +193,8 @@ projects:
   - name: Make ICI
     slug: sock-it
     content: Originellement le Fablab d'ICI Montreuil, il est devenu Make ICI en 2017, un réseau de manufactures collaboratives et solidaires. MakeICI pour vocation de développer la culture "makers", une culture de créateur et entrepreneurs. Dans une dynamique collaborative, de partage et d'artisanat, MakeICI met en relation au sein de ses manufactures des artisans, artistes, designers, startups et entrepreneurs du “Faire”. J'ai été amené dans le cadre de mon alternance à réaliser un multi-site sur Wordpress. Le multi-site regroupe tout les sites dépendants de MakeICI comme ICI Montreuil, ICI Marseille, ICI The Camp d'autres en prévision comme ICI Lille, ICI Bordeaux. Dans le cadre de la réalisation du thème wordpress commun à tout les sites, j'ai été amené à développer plusieurs fonctionnalité comme un plugin évènementiel sur Woocommerce ou un système d'automatisation d'envoi des e-mail.
+    content_en: |
+      Begin as ICI Montreuil Fablab, it became Make ICI in 2017, a network of collaborative maker-space. MakeICI want to develop the « makers » culture , a culture of creators and entrepreneurs. In a dynamic of collaboration, sharing and craftsmanship, MakeICI put in relation craftsmen, artists, designers, startups and makers. At FCP Digital, we realized a multi-site on Wordpress. This multi-site regroups all the MakeICI factories : ICI Montreuil, ICI Marseille, ICI The Camp and soon ICI Bordeaux and ICI Lille. I also develop several features such as an event plugin based on Woocommerce or an automation system for sending e-mails.
     thumbnail: projects/makeici.png
     photos: 
     date: 2017-10-01
@@ -197,6 +205,7 @@ projects:
   - name: Ono
     slug: ono
     content: Ono est une application web développé à l'aide du framework MVC symfony. Il fût réaliser dans le cadre de mon projet tuteuré de MMI. Le but était de faire prendre conscience de l'impact de la révolution digital dans le monde entier. A travers d'un système d'articles participatif et d'un système de question réponse poussé. Ono invite des utilisateurs du monde entier à échanger sur des domaines impacté par le numérique. Article et Réflexion sont lié les unes aux autres à l'aide d'un système de tag intéligent accompagnant le lecteur et l'invitant à passer de notion en notion. Afin de donner une dimension immersive et intéractive à ce projet une expérience intéractive en béta test a également était développer permettant d'écouter des témoignages diverses de personne du monde entier dont le numérique a drastiquement changé la vie. 
+    content_en: Ono is a web application developed with the MVC Framework Symfony. This is a school project realized during my last year in MMI. The goal was to make people aware of the huge impact of digital revolution all around the world. Ono invite people to share and talk about multiple domains impacted by numeric. To give interactivity to this project, we also developed an immersive 3D experience to listen testimony of people in the world.
     thumbnail: projects/ono.png
     photos: 
     url: http://ono-.herokuapp.com/uxinteractive
@@ -206,7 +215,8 @@ projects:
 
   - name: 421
     slug: 421-game
-    content: Le 421 est un jeu populaire qui se joue à l'aide de 3 dès. Afin de favoriser la prise de score, j'ai développé une application Android.
+    content: Le 421 est un jeu populaire qui se joue à l'aide de 3 dès. Afin de favoriser la prise de score, j'ai développé une application Android automatisant les calcules du comptage de scores. J'ai également développer ce jeu en Vue.js en octobre 2017. 
+    content_en: 421 is a famous game which can be played with three dices. To simplify the score counting, i developped an android application. I also developped this game with Vue.js in octobre 2017. 
     thumbnail: projects/421.png
     photos: 
     url: http://421.solaldussout-revel.com/
@@ -218,6 +228,7 @@ projects:
   - name: Sock-It
     slug: sock-it
     content: Sock-it est un site de e-commerce développer à l'aide du framework MVC Ruby On Rails. Il a été réalisé dans le cadre d'un cour de gestion de projet dont l'objectif était d'expérimenter la gestion de projet en mode agile. La finalité de Sock-it n'est donc pas de vendre des chaussettes bien que ce secteur d'activité soit passionant mais bien d'apréhender des questions éssentiel lié au e-commerce. A l'heure actuelle où la gestion d'un site e-commerce est une chose grandement facilité par des outils fortement apprécié comme Prestashop, Magento ou même Woocommerce, le choix du framework Ruby-On-Rails nous a permis de repenser l'architecture d'un site de vente à zéro pour mieux en comprendre sa pertinence. Le projet intègre donc un système gestion de catalogue classique permettant un gestion des catégorie, des variations de produits, des promotions, etc... Un tunel de conversion natif a également été développer, couplé à l'intégration du module de paiment Stripe. 
+    content_en: Sock-it is an e-commerce website developed with the mvc framework RubyOnRails. This project has been realized for a project management course to experiment Agile methodology. This project allowed us to understand really how to make an e-commerce website starting from scratch.
     thumbnail: projects/sockit.png
     photos: 
     url: http://sock--it.herokuapp.com/

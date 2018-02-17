@@ -1,0 +1,10 @@
+fr: 
+  about: 
+    menu_title: A Propos
+    title: A Propos  
+
+    content: <p class="animate animate--fade-left-1 animate--delay-3">J'étudie en développement intéractif à <strong>l'école des Gobelins à Paris</strong>, cette formation me forme à concevoir et développer des application web et mobile expérientiel et immersive.
+      <p class="animate animate--fade-left-1 animate--delay-4">Dans le cadre de mes études, je travaille en alternance en tant que développeur Full Stack dans l'agence FCP Digital à Bordeaux.
+      </p>
+      <p class="animate animate--fade-left-1 animate--delay-5">Passioné par l'innovation web et les nouvelles technologies, je cherche en permanaence à allier l'expérientiel à l'utile. 
+      </p>

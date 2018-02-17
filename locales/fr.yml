@@ -13,14 +13,15 @@ fr:
   contact:
     menu_title: Contactez moi
     title: Contactez moi
-
-  about:
-    menu_title: A Propos
-    title: A Propos
+    name: "Nom"
+    email: "E-mail"
+    subject: "Sujet"
+    content: "Message"
 
   skills:
     menu_title: Mes competences
     title: Mes competences
+    other: Autre
 
   actions: 
     send: Envoyer

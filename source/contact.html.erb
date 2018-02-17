@@ -9,12 +9,12 @@ slug: contact
 		<h1 class="title title--page animate"><%= t(:title, scope: [:contact]) %></h1>
 		<div class="form__container">
 			<form class="form" action="/postmail.php">
-				<input class="form__input animate animate--fade-right-2 animate--delay-1" type="text" name="name" placeholder="Nom">
-				<input class="form__input animate animate--fade-right-2 animate--delay-2" type="text" name="email" placeholder="E-mail">
-				<input class="form__input animate animate--fade-right-2 animate--delay-3" type="text" name="subject" placeholder="Sujet">
-				<textarea class="form__text animate  animate--fade-right-2 animate--delay-4" name="content" id="" cols="30" rows="10" placeholder="Message"></textarea>
+				<input class="form__input animate animate--fade-right-2 animate--delay-1" type="text" name="name" placeholder="<%= t(:name, scope: [:contact]) %>">
+				<input class="form__input animate animate--fade-right-2 animate--delay-2" type="text" name="email" placeholder="<%= t(:email, scope: [:contact]) %>">
+				<input class="form__input animate animate--fade-right-2 animate--delay-3" type="text" name="subject" placeholder="<%= t(:subject, scope: [:contact]) %>">
+				<textarea class="form__text animate  animate--fade-right-2 animate--delay-4" name="content" id="" cols="30" rows="10" placeholder="<%= t(:content, scope: [:contact]) %>"></textarea>
 				<div class="center-x">
-					<input type="submit" class="form__submit animate animate--fade-right-2 animate--delay-5" value="Envoyer">	
+					<input type="submit" class="form__submit animate animate--fade-right-2 animate--delay-5" value="<%= t(:send, scope: [:actions]) %>">	
 				</div>
 				
 			</form>

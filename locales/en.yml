@@ -11,14 +11,15 @@ en:
   contact:
     menu_title: Contact
     title: Contact
-
-  about:
-    menu_title: About
-    title: About Me
+    name: "Name"
+    email: "E-mail"
+    subject: "Subject"
+    content: "Message"
 
   skills:
     menu_title: Skills
     title: Skills
+    other: Other
 
   actions: 
     send: Send

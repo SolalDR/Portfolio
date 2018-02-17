@@ -22,12 +22,12 @@
 	</div>
 
 	<div class="project__content">
-		<%= project.content %>
+		<%= project.content_en %>
 	</div>
 
 	<div class="project__actions">
 		<% if project.url %>
-			<a class="project__action" target="_blank" href="<%= project.url %>">Voir le projet</a>
+			<a class="project__action" target="_blank" href="<%= project.url %>">Visit project</a>
 		<% end %>
 		<a class="project__action" target="_blank" href="<%= project.repository %>">Github</a>
 	</div>
