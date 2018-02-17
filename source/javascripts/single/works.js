@@ -23,18 +23,19 @@ function offset(elem) {
 
 export default {
 
-
-
 	init(ctx){
+
 		this.ctx = ctx;
 		this.ctx.bg.clipCanvas.displayArrow("left");
 
 		this.projectsFrame = document.querySelectorAll(".projects__item-perspective");
 		this.projects = document.querySelectorAll(".projects__item");
 		this.projectsContainer = document.querySelectorAll(".projects__item-container");
+		
 		for(var i=0; i<this.projects.length; i++){	
 			this.initProject(this.projects[i], this.projectsFrame[i], this.projectsContainer[i]);
 		}
+
 	},
 
 
@@ -50,6 +51,9 @@ export default {
 		if( !el.className.match("projects__item-container--full")){
 			el.className += " projects__item-container--full"
 			el.setAttribute("style", `top: ${window.scrollTop}px;`);
+			setTimeout(() => {
+				c.matrixForce = 100000
+			}, 1000)
 		}
 		this.ctx.bg.cursor.bem.addMod("light");
 	},
@@ -58,16 +62,19 @@ export default {
 		var position = offset(block)
 		
 		setTimeout(function(){
+			console.log(c.matrixForce);
 			c.matrixForce = 3000;
-		}, 2000)
+		}, 1000)
 		
 		el.setAttribute("style", `left: ${position.left}px; top: ${position.top}px;`);
+		
 		if( el.className.match("projects__item-container--full")){
 			el.className = el.className.replace("projects__item-container--full", "projects__item-container--leaving");
 			setTimeout(function(){
 				el.className = el.className.replace("projects__item-container--leaving", "");
-			}, 1000)
+			}, 2000)
 		}
+
 		this.ctx.bg.cursor.bem.removeMod("light");
 	},
 
@@ -89,15 +96,22 @@ export default {
 			this.hideProject(blockContainer, block);
 		})
 
+		if( blockContainer.hasAttribute("data-current")){
+			if( !this.isProjectDisplay(blockContainer)) {
+				this.displayProject(blockContainer, block);
+			}
+		}
+
 		block.addEventListener("click", () => {
-			console.log("Open")
+			var slug = block.getAttribute("data-slug");
+			window.history.pushState({}, "Block "+slug, "/works/"+slug+"/");
 			if( !this.isProjectDisplay(blockContainer)) {
 				this.displayProject(blockContainer, block);
 			}
 		})
 
 		project.close.addEventListener("click", (e) => {
-			console.log("Close")
+			window.history.pushState({}, "Works", "/works/");
 			this.hideProject(blockContainer, block);
 			e.stopPropagation();
 			e.preventDefault();

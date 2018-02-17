@@ -9,10 +9,15 @@ end
 # https://middlemanapp.com/basics/layouts/
 
 # Per-page layout changes
+activate :directory_indexes
+
+data.projects.projects.each do |project|
+  proxy "/works/#{project.slug}/", "/project.html", :locals => { :current => project }, :ignore => true, :layout => "layout"
+end
+
 page '/*.xml', layout: false
 page '/*.json', layout: false
 page '/*.txt', layout: false
-
 
 activate :external_pipeline,
          name: :webpack,
