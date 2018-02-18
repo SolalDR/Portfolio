@@ -53,7 +53,8 @@ export default {
 			// alert("Mail send with success")
 			this.formState = "success";
 		} else {
-			alert("An error occured")
+			alert("Error, please fill all the fields");
+			this.submit.removeAllMod();
 		}
 	}
 }
