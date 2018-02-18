@@ -5,7 +5,6 @@
 
 
 	&__item
-		// width: 35%
 		width: 350px
 		height: 200px
 		margin-bottom: 50px
@@ -96,5 +95,51 @@
 
 		&:hover .projects__item-title
 			letter-spacing: 4px
-		
+	
 
+@media screen and (max-width: 500px)
+	
+	.projects__item, .projects__item-container
+		width: 300px
+
+		&.projects__item-container--full
+			width: calc(100% + 50px)
+	
+	.projects__item-full
+		margin: 10px 35px
+		width: calc(100% - 70px)
+		height: calc(100% - 20px)
+
+
+	// Override default behaviour
+
+	.projects__item-perspective
+		transform: none !important
+
+	.projects__item-container
+		top: auto !important
+		left: auto !important
+		&--full, &--full .projects__item-perspective, &--full .projects__item-miniature 
+			width: 300px
+			position: static
+			height: 200px
+	
+	.projects__item-miniature
+		max-width: 300px
+		cursor: pointer
+
+	.projects__item-container .projects__item-full
+		top: 0
+		left: 0
+		opacity: 1
+		width: calc(100vw - 20px)
+		height: calc(100vh - 20px)
+		position: fixed
+		margin: 10px
+		transform: translateX(100vw)
+		opacity: 0
+		cursor: auto
+		z-index: 999
+	.projects__item-container--full .projects__item-full
+		transform: translateX(0)
+		opacity: 1

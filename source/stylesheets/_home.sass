@@ -23,6 +23,7 @@
 		padding: 0 60px
 		margin-bottom: 10px
 		word-break: keep-all
+		transition: opacity 1s
 
 	&__subtitle
 		font-size: 17px
@@ -38,7 +39,15 @@
 @media screen and (max-width: 500px)
 	.home__title
 		margin-bottom: 20px
-		line-height: 40px
+		line-height: 10px
+		letter-spacing: 15px
+		font-size: 40px
+		text-align: center
+		color: rgba(255, 255, 255, 0)
+		font-weight: 100
+		margin-left: 10px
+		&:first-line
+			color: rgba(255, 255, 255, 1)
 	.home__subtitle
 		letter-spacing: 2px
 
