@@ -8,7 +8,7 @@ slug: contact
 	<div class="wrapper center-x">
 		<h1 class="title title--page animate"><%= t(:title, scope: [:contact]) %></h1>
 		<div class="form__container">
-			<form class="form" action="/postmail.php">
+			<form class="form" action="/postmail.php" method="post">
 				<input class="form__input animate animate--fade-right-2 animate--delay-1" type="text" name="name" placeholder="<%= t(:name, scope: [:contact]) %>">
 				<input class="form__input animate animate--fade-right-2 animate--delay-2" type="text" name="email" placeholder="<%= t(:email, scope: [:contact]) %>">
 				<input class="form__input animate animate--fade-right-2 animate--delay-3" type="text" name="subject" placeholder="<%= t(:subject, scope: [:contact]) %>">
@@ -16,7 +16,6 @@ slug: contact
 				<div class="center-x">
 					<input type="submit" class="form__submit animate animate--fade-right-2 animate--delay-5" value="<%= t(:send, scope: [:actions]) %>">	
 				</div>
-				
 			</form>
 		</div>
 	</div>
