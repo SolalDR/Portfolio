@@ -3,10 +3,6 @@ My middleman portfolio you can visit <a target="_blank" href="http://solaldussou
 
 ## Todo
   
-- Style
-  - Outline none
- 
-- Back contact form
 - Social networks in about section
 - Meta description
 
