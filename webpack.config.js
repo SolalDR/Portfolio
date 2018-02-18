@@ -6,11 +6,6 @@ module.exports = {
     site: './source/javascripts/site.js'
   },
 
-  plugins: [
-        new webpack.ProvidePlugin({ PIXI: 'pixi.js' }),
-        // new webpack.ProvidePlugin({ pixiCustom: 'pixi-custom' })
-  ],
-
   resolve: {
     modules: [__dirname, 'node_modules'],
     extensions: ['*','.js','.jsx']

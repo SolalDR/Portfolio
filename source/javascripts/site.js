@@ -24,7 +24,7 @@ window.addEventListener("load", function(){
 
 
 // Avant chaque chargement
-document.addEventListener("asap:before-load", (e) => {
+document.addEventListener("asap:before-load", function (e) {
 	e.preventDefault();
 	nav.visit = e.detail; 			// Prepare le chargement de la visite
 
@@ -34,6 +34,6 @@ document.addEventListener("asap:before-load", (e) => {
 })
 
 // Après chaque chargement 
-document.addEventListener("asap:load", (e) => {
+document.addEventListener("asap:load", function (e)  {
 	nav.load();
 })
