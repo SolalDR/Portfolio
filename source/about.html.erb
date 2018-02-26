@@ -9,7 +9,23 @@ slug: about
 	<div class="wrapper">
 		<div class="about__content animate">
 			<h1 class="title title--page animate animate--fade-left-2 animate--delay-1"><%= t(:title, scope: [:about]) %></h1>	
-			<%= t(:content, scope:[:about]) %>
+			<div>
+				<%= t(:content, scope:[:about]) %>	
+			</div>
+			<div class="about__social-list">
+				<a href="" class="about__social">
+					<%= image_tag "social/codepen.svg" %>
+				</a>
+				<a href="" class="about__social">
+					<%= image_tag "social/github.svg" %>
+				</a>
+				<a href="" class="about__social">
+					<%= image_tag "social/linkedin.svg" %>
+				</a>
+				<a href="" class="about__social">
+					<%= image_tag "social/twitter.svg" %>
+				</a>
+			</div>
 		</div>
 
 	</div>
